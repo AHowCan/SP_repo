@@ -1,0 +1,5 @@
+[gd_resource type="DynamicFontData" format=2]
+
+[resource]
+resource_name = "TypistFont"
+font_path = "res://fonts/Kanit-Medium.ttf"

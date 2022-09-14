@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/player.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.14661, 6.14497 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.90417, 5.64771 )
+
+[node name="MNode_1" type="RigidBody2D"]
+position = Vector2( 110.081, 258.776 )
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0.752941, 0.00784314, 1 )
+show_behind_parent = true
+position = Vector2( 1.51183, -0.801404 )
+scale = Vector2( 0.683092, 0.191376 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0263519, 0.0743408 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -19.7992
+margin_top = -7.50522
+margin_right = 20.2008
+margin_bottom = 6.4948
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mnode_zone" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mnode_zone"]
+shape = SubResource( 2 )
