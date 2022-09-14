@@ -19,7 +19,7 @@
 [ext_resource path="res://assets/empty_key_cap.png" type="Texture" id=18]
 [ext_resource path="res://src/levels/TitleBox.gd" type="Script" id=19]
 [ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=20]
-[ext_resource path="res://assets/wall_panel_1.png" type="Texture" id=21]
+[ext_resource path="res://assets/walls/wall_panel_1.png" type="Texture" id=21]
 [ext_resource path="res://assets/walls/wall_panel_2.png" type="Texture" id=22]
 [ext_resource path="res://assets/walls/wall_panel_3.png" type="Texture" id=23]
 [ext_resource path="res://assets/walls/corner_wall_1.png" type="Texture" id=24]
@@ -33,6 +33,7 @@
 [ext_resource path="res://assets/walls/vert_wall_2.png" type="Texture" id=32]
 [ext_resource path="res://assets/walls/corner_wall_1 copy 3.png" type="Texture" id=33]
 [ext_resource path="res://Sprite_Work/wall_tile_set_1.png" type="Texture" id=34]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
