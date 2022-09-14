@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://assets/tileset.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/pixil-frame-0.png" type="Texture" id=5]
 [ext_resource path="res://src/levels/TypeBox.gd" type="Script" id=6]
 [ext_resource path="res://assets/space_2.png" type="Texture" id=7]
+[ext_resource path="res://src/levels/Node2D.gd" type="Script" id=8]
 [ext_resource path="res://src/Camera2D.tscn" type="PackedScene" id=9]
 [ext_resource path="res://fonts/TypistFont.tres" type="DynamicFontData" id=10]
 [ext_resource path="res://assets/bottom_panel_1_2.png" type="Texture" id=11]
@@ -802,6 +803,11 @@ tile_set = SubResource( 35 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Node2D2" type="Node2D" parent="Node2D"]
 
 [connection signal="timeout" from="CanvasLayer/SpeedMeter/ZeroToMaxTimer" to="CanvasLayer/SpeedMeter" method="_on_ZeroToMaxTimer_timeout"]
 [connection signal="button_up" from="TitleBox/Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_button_up"]
