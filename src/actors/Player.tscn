@@ -1,15 +1,26 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://assets/TypistShip1_5.png" type="Texture" id=1]
+[ext_resource path="res://assets/player/moving/p_ship_2.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/Player.gd" type="Script" id=2]
 [ext_resource path="res://src/actors/BoostController.gd" type="Script" id=3]
 [ext_resource path="res://src/actors/BoostWord1.gd" type="Script" id=4]
 [ext_resource path="res://src/actors/NodeDetectArea.gd" type="Script" id=5]
 [ext_resource path="res://assets/coin.png" type="Texture" id=6]
 [ext_resource path="res://fonts/BoostFont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://assets/player/moving/p_ship_1.png" type="Texture" id=8]
+[ext_resource path="res://assets/player/moving/p_ship_3.png" type="Texture" id=9]
+[ext_resource path="res://assets/player/moving/p_ship_4.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+} ]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 15.5701
+radius = 12.8689
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -21,10 +32,12 @@ position = Vector2( 96.1525, 151.741 )
 collision_mask = 10
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.0378413, -0.0378413 )
-scale = Vector2( 0.253623, 0.253623 )
-texture = ExtResource( 1 )
+frames = SubResource( 4 )
+animation = "idle"
+frame = 3
+flip_h = true
 
 [node name="DirectionDot" type="Sprite" parent="."]
 visible = false
@@ -71,6 +84,7 @@ position = Vector2( 96.1525, 151.741 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoostController/BoostWord2"]
+visible = false
 position = Vector2( -0.222809, -0.222824 )
 shape = SubResource( 2 )
 disabled = true
@@ -96,6 +110,7 @@ position = Vector2( 96.1525, 151.741 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoostController/BoostWord3"]
+visible = false
 position = Vector2( -0.222809, -0.222824 )
 shape = SubResource( 2 )
 disabled = true
@@ -103,14 +118,11 @@ disabled = true
 [node name="Label" type="Label" parent="BoostController/BoostWord3"]
 margin_left = -20.0
 margin_top = -23.0
-margin_right = 20.0
+margin_right = 23.0
 margin_bottom = 22.0
 custom_colors/font_color = Color( 0.788235, 1, 0.368627, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BoostMissTimer" type="Timer" parent="BoostController/BoostWord3"]
 

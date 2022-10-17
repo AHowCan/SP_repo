@@ -37,17 +37,14 @@ func _process(delta: float) -> void:
 		if enemy.dead == true:
 			print("time to disappear")
 			enemyList.erase(enemy)
-			
+
 			enemy.visible = false
 			wordKilled(enemy)
 			break
 			
-
 func wordKilled(enemy):
 	player.wordList.remove(index)
 	enemy.queue_free()
-
-
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	print("Player detected")
@@ -56,7 +53,6 @@ func _on_Area2D_body_entered(body: Node) -> void:
 	if player.booster != 0:
 		player.booster = 0
 	player.direction = -(player.direction)
-
 
 func _on_Button_button_up() -> void:
 	entry.remove_title_screen()

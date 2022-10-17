@@ -20,8 +20,8 @@ export var TURNSPEED = 30
 var decelaration = 0 # originally 150
 
 onready var level = get_tree().get_root().get_node("LevelTemplate")
-onready var textB = get_tree().get_root().get_node("LevelTemplate/CanvasLayer/TypeBox")
-onready var speed_meter = get_tree().get_root().get_node("LevelTemplate/CanvasLayer/SpeedMeter")
+onready var textB = get_tree().get_root().get_node("LevelTemplate/UI/TypeBox")
+onready var speed_meter = get_tree().get_root().get_node("LevelTemplate/UI/SpeedMeter")
 #onready var enemy = get_node("../Area_1")
 onready var timer = get_node("Timer")
 #onready var boost_respawn_timer = $Boost_Respawn
@@ -53,6 +53,7 @@ func _ready():
 	enemy_list = level.enemyList
 	cur_position = Vector2(self.position.x, self.position.y)
 	target_coord = cur_position
+	$AnimatedSprite.play("idle")
 
 func _physics_process(delta: float) -> void:
 	### Check various typing matches
