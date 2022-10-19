@@ -13,8 +13,8 @@ var booster = 0
 var cur_position
 var target_coord
 var target_node
-export var MAX_SPEED = 80	
-export var ACCELERATION = 80
+export var MAX_SPEED = 120	
+export var ACCELERATION = 120
 export var boost_amount = 160
 export var TURNSPEED = 30
 var decelaration = 0 # originally 150
