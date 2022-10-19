@@ -6,7 +6,8 @@ var dead = false
 
 const letter_width = 58
 const letter_height = 92
-const letter_scale = 0.35
+const letter_scale = 0.60
+const spacing = 1 * letter_scale
 
 onready var letter1 = $LetterInstance/Letter_1
 onready var letter2 = $LetterInstance/Letter_2
@@ -160,6 +161,8 @@ onready var oddletter3 = $OddLetterPos/Letter3
 onready var oddletter4 = $OddLetterPos/Letter4
 onready var oddletter5 = $OddLetterPos/Letter5
 
+
+
 onready var evenletter1 = $EvenLetterPos/Letter1
 onready var evenletter2 = $EvenLetterPos/Letter2
 onready var evenletter3 = $EvenLetterPos/Letter3
@@ -183,7 +186,16 @@ func generate_word() -> String:
 	return words[index]
 	
 func _ready():
-	pass
+	oddletter1.set_position(Vector2(-letter_width*2*spacing,0))
+	oddletter2.set_position(Vector2(-letter_width*1*spacing,0))
+	oddletter3.set_position(Vector2(-letter_width*0*spacing,0))
+	oddletter4.set_position(Vector2(letter_width*1*spacing,0))
+	oddletter5.set_position(Vector2(letter_width*2*spacing,0))
+	evenletter1.set_position(Vector2(-letter_width*2*spacing,0))
+	evenletter2.set_position(Vector2(-letter_width*1*spacing,0))
+	evenletter3.set_position(Vector2(letter_width*0*spacing,0))
+	evenletter4.set_position(Vector2(letter_width*1*spacing,0))
+	
 	
 func spawn(word: String):
 	self.word = word
