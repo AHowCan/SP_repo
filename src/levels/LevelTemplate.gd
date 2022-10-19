@@ -35,7 +35,6 @@ func _ready():
 func _process(delta: float) -> void:
 	for enemy in enemyList:
 		if enemy.dead == true:
-			print("time to disappear")
 			enemyList.erase(enemy)
 
 			enemy.visible = false
@@ -47,7 +46,6 @@ func wordKilled(enemy):
 	enemy.queue_free()
 
 func _on_Area2D_body_entered(body: Node) -> void:
-	print("Player detected")
 	player.velocity = -((player.velocity) / 2)
 	player.speed = int(player.speed / 2)
 	if player.booster != 0:

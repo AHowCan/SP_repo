@@ -1,42 +1,44 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://LetterController.gd" type="Script" id=1]
 [ext_resource path="res://assets/Word_assests/word_background_3.png" type="Texture" id=2]
+[ext_resource path="res://MicroSix-MVRjw.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Area2D.gd" type="Script" id=6]
 [ext_resource path="res://assets/atlases/lower_case_letters.png" type="Texture" id=8]
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 58, 92 )
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 46, 17.5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 3 )
 
 [node name="WordController" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.999997, -0.499999 )
+position = Vector2( 1, -5.96046e-08 )
 scale = Vector2( 0.979167, 1.15625 )
 texture = ExtResource( 2 )
 
 [node name="OddLetterPos" type="Node2D" parent="."]
 
 [node name="Letter1" type="Position2D" parent="OddLetterPos"]
-position = Vector2( -36, 0 )
+position = Vector2( -40, 0 )
 
 [node name="Letter2" type="Position2D" parent="OddLetterPos"]
-position = Vector2( -18, 0 )
+position = Vector2( -20, 0 )
 
 [node name="Letter3" type="Position2D" parent="OddLetterPos"]
 
 [node name="Letter4" type="Position2D" parent="OddLetterPos"]
-position = Vector2( 18, 0 )
+position = Vector2( 20, 0 )
 
 [node name="Letter5" type="Position2D" parent="OddLetterPos"]
-position = Vector2( 36, 0 )
+position = Vector2( 40, 0 )
 
 [node name="EvenLetterPos" type="Node2D" parent="."]
+visible = false
 
 [node name="Letter1" type="Position2D" parent="EvenLetterPos"]
 position = Vector2( -27, 0 )
@@ -82,24 +84,27 @@ position = Vector2( 10, 75 )
 texture = ExtResource( 8 )
 region_enabled = true
 
-[node name="Label" type="Label" parent="."]
-visible = false
-margin_left = -40.0
-margin_top = -10.0
-margin_right = 41.0
-margin_bottom = 10.0
-
-[node name="Sprite2" type="Sprite" parent="."]
-visible = false
-position = Vector2( 16, 22 )
-texture = SubResource( 2 )
-region_rect = Rect2( 0, 0, 58, 92 )
-
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 1, -0.5 )
 shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 46.0
+margin_right = 36.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 2 )
+text = "S"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 58.0
+margin_top = 49.0
+margin_right = 133.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 2 )
+text = "pace"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

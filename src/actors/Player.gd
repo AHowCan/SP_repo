@@ -96,7 +96,8 @@ func is_player_moving() -> bool:
 		return true
 	else:
 		return false
-	
+
+# Interrupt handler by godot calls when an 'event' happens (key pressed)
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_BACKSPACE  and not event.echo:
 		typist.pop_back()
@@ -171,16 +172,12 @@ func boost_word_typed(delta: float, velocity: Vector2) -> Vector2:
 func point_word_typed(delta: float, velocity: Vector2) -> Vector2:
 	var index = 0
 	for enemy in enemy_list:
-		#print(enemy.word)
 		if typist.size() == enemy.word.length():
-			#var min_length = typist.size()
-			#var min_length = min(typist.size(), enemy.word.length())
 			for i in typist.size():
 				if typist[i] != enemy.word[i]:
 					break
 				else:
 					if enemy.word.length() - 1 == i:
-						#print("Found word")
 						typist = []
 						#decelaration = 0
 						#booster = 0
@@ -188,7 +185,6 @@ func point_word_typed(delta: float, velocity: Vector2) -> Vector2:
 						#direction = (enemy.position - global_position).normalized()
 						speed = MAX_SPEED
 						speed_meter.zero_to_max()
-						#print(direction)
 						#direction = (level.enemyList[index].global_position - global_position).normalized()
 						#return (enemy.position - global_position).normalized()
 						return enemy.position

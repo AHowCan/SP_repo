@@ -3,7 +3,7 @@
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=1]
 
 [node name="Camera2D" type="Camera2D"]
-position = Vector2( 640.482, 359.593 )
+position = Vector2( 777, 435 )
 current = true
 zoom = Vector2( 1.2, 1.2 )
 smoothing_enabled = true

@@ -13,7 +13,6 @@ onready var letter2 = $LetterInstance/Letter_2
 onready var letter3 = $LetterInstance/Letter_3
 onready var letter4 = $LetterInstance/Letter_4
 onready var letter5 = $LetterInstance/Letter_5
-onready var label = get_node("Label")
 onready var level = get_parent().get_parent()
 onready var player = level.get_node("Player")
 
@@ -166,42 +165,30 @@ onready var evenletter2 = $EvenLetterPos/Letter2
 onready var evenletter3 = $EvenLetterPos/Letter3
 onready var evenletter4 = $EvenLetterPos/Letter4
 
-#func _ready():
-#	letter_list[97].
-#	var th = 32 #target height
-#	var tw = 16 #target width
-#	var scale = Vector2((is.x/(is.x/tw))/50, (is.y/(is.y/th))/50)
-
 func gen_word() -> int:
 	randomize()
 	var index = randi() % word_count + 1
 	while word_used[index] != 0:
 		index +=1
 		if index > word_count:
-			index = 1
+			index = 0
+		
 		#index = randi() % nnControll.word_count + 1
 	word_used[index] = 1
-	label.name = words[index]
-	label.text = words[index]
 	return words[index]
 
 func generate_word() -> String:
 	randomize()
 	var index = randi()%20+1
-	label.name = words[index]
-	label.text = words[index]
 	return words[index]
 	
 func _ready():
-	word = gen_word()
-	#print(word)
-	var use_word = word
-	var asciiword = getASCIIValue(use_word)
+	pass
+	
+func spawn(word: String):
+	self.word = word
+	var asciiword = getASCIIValue(word)
 	var is_finished = getLetterPositions(asciiword)
-	level.wordList.append(self)
-	level.enemyList.append(self)
-	player.wordList.append(self)
-	player.killed.append(0)
 
 func _process(delta: float) -> void:
 	pass
@@ -213,7 +200,6 @@ func getASCIIValue(word: String) -> Array:
 	return word_sprite_list
 	
 func getLetterPositions(word_sprite_list: Array) -> bool:
-	#lower_a.set_region(Rect2(58,0,58,92))
 	var word_length = len(word_sprite_list)
 	if word_length == 2:
 		letter1.position = evenletter2.position
@@ -224,7 +210,7 @@ func getLetterPositions(word_sprite_list: Array) -> bool:
 		letter2.visible = true
 		letter1.set_scale(Vector2(letter_scale, letter_scale))
 		letter2.set_scale(Vector2(letter_scale, letter_scale))
-	if word_length == 3:
+	elif word_length == 3:
 		letter1.position = oddletter2.position
 		letter2.position = oddletter3.position
 		letter3.position = oddletter4.position
@@ -237,7 +223,7 @@ func getLetterPositions(word_sprite_list: Array) -> bool:
 		letter1.set_scale(Vector2(letter_scale, letter_scale))
 		letter2.set_scale(Vector2(letter_scale, letter_scale))
 		letter3.set_scale(Vector2(letter_scale, letter_scale))
-	if word_length == 4:
+	elif word_length == 4:
 		letter1.position = evenletter1.position
 		letter2.position = evenletter2.position
 		letter3.position = evenletter3.position
@@ -254,7 +240,7 @@ func getLetterPositions(word_sprite_list: Array) -> bool:
 		letter2.set_scale(Vector2(letter_scale, letter_scale))
 		letter3.set_scale(Vector2(letter_scale, letter_scale))
 		letter4.set_scale(Vector2(letter_scale, letter_scale))
-	if word_length == 5:
+	elif word_length == 5:
 		letter1.position = oddletter1.position
 		letter2.position = oddletter2.position
 		letter3.position = oddletter3.position
