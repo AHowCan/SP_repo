@@ -32,14 +32,14 @@ onready var boost_word1 = get_node("BoostController/BoostWord1")
 onready var direction_dot = $DirectionDot
 
 var typed = false
+var lock_direction = true
+var death_direction = Vector2.ZERO
 var typist = [] 
 var typing = ""
 var wordList = []
 var killed = []
 var enemy_list = []
-
 var boostNodes = []
-
 var min_word_length = 3
 var num_of_boosts = 3
 var output_boost_word = false
@@ -63,7 +63,13 @@ func _physics_process(delta: float) -> void:
 			if Vector2.ONE != temp_enem_loc and enemy_loc != temp_enem_loc:
 				enemy_loc = temp_enem_loc
 				#direction = enemy_loc
-			direction = (enemy_loc - global_position).normalized()
+			#direction = (enemy_loc - global_position).normalized()
+			if not lock_direction:
+				print('1 - %s' % death_direction)
+				direction = death_direction
+			else:
+				print('2 - %s' % direction)
+				direction = (enemy_loc - global_position).normalized()
 			velocity = boost_word_typed(delta, velocity)
 		typed = false
 	
@@ -104,9 +110,15 @@ func _input(event: InputEvent) -> void:
 		typing.erase(-1,  1)
 		typed = true
 	elif event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_SHIFT and not event.echo:
-		increase_speed()
+		pass
+		print('death_dir %s' % death_direction)
+		#increase_speed()
 	elif event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_SPACE and not event.echo:
-		decrease_speed()
+		if lock_direction:
+			lock_direction = false
+		else:
+			lock_direction = true
+		#decrease_speed()
 	elif event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_ENTER  and not event.echo:
 		typist = []
 		typing = ""
@@ -147,7 +159,6 @@ func decrease_speed(amount : int = 20) -> void:
 	if booster > 0:
 		booster -= amount
 		
-	
 func boost_word_typed(delta: float, velocity: Vector2) -> Vector2:
 	var index = 0
 	for wordNode in boostNodes:
@@ -192,41 +203,15 @@ func point_word_typed(delta: float, velocity: Vector2) -> Vector2:
 			index += 1
 	#return velocity
 	return Vector2.ONE
-
-#	return 
-#	var target_coords = Vector2.ZERO
-#	var index = 0
-#	for word1 in wordList:
-#		var min_length = min(typist.size(), word1.length())
-#		for i in min_length:
-#			if word1[i] != typist[i]:
-#				break
-#			else:
-#				if word1.length()-1 == i:
-#					print("Found word ")
-#					typist = []
-#					level.index = index
-#					### Moving code
-#					#velocity = Vector2.ZERO
-#					#target_coords = 
-#					direction = (level.enemyList[index].global_position - global_position).normalized()
-#					#velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
-#
-#					### Boost Timer code
-##					if num_of_boosts > 0:
-##						timer_for_word_boosts(true)
-##						num_of_boosts -= 1
-#
-#
-#		index += 1
-#	#print(velocity)
-#	return direction
-
 	
 func remove_word(index: int, word_list: Array) -> void:
 	if word_list == boostNodes:
 		boostNodes[index].dead = true
 		boostNodes[index].visible = false
+
+func death_direction() -> void:
+	print('set death_dir')
+	death_direction = direction
 
 func timer_for_word_boosts(start: bool) -> void:
 	if start:
@@ -234,26 +219,3 @@ func timer_for_word_boosts(start: bool) -> void:
 
 func begin_boost_sequence() -> void:
 	pass
-
-#func _on_Timer_timeout() -> void:
-#	timer.stop()
-#	word_boost.word_velocity = Vector2.ZERO
-#	word_boost.timer.start(3)
-#	word_boost.get_boost = true
-#	word_boost.dead = false
-
-#
-#func _on_Boost_Respawn_timeout() -> void:
-#	for boostword in boostNodes:
-#		if boostword.dead == true:
-#			boost_respawn_timer.stop()
-#			boostword.dead = false
-#			boostword.visible = true
-#			boostword.get_boost = false
-
-
-#func _on_Boost_Duration_timeout() -> void:
-#	print("Remove boost")
-#	boost_duration_timer.stop()
-#	MAX_SPEED -= booster
-#	#velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)

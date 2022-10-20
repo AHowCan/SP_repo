@@ -3,6 +3,8 @@ extends Node2D
 var word_count = 25
 var word = ""
 var dead = false
+var boost_word = false
+var dir
 
 const letter_width = 58
 const letter_height = 92
@@ -72,34 +74,6 @@ onready var letter_list = {
 	122 : Rect2(letter_width * 25, 0, letter_width, letter_height)
 }
 
-#var words = {
-#	1:"cdef",
-#	2:"abcd",
-#	3:"abcd",
-#	4:"abcd",
-#	5:"abcd",
-#	6:"abcd",
-#	7:"abcd",
-#	8:"abcd",
-#	9:"abcd",
-#	10:"abcd",
-#	11:"abcd",
-#	12:"abcd",
-#	13:"abcd",
-#	14:"abcd",
-#	15:"abcd",
-#	16:"abcd",
-#	17:"abcd",
-#	18:"abcd",
-#	19:"abcd",
-#	20:"abcd",
-#	21:"abcd",
-#	22:"abcd",
-#	23:"abcd",
-#	24:"abcd",
-#	25:"abcd"
-#}
-
 var words = {
 	1 : "rock",
 	2 : "light",
@@ -160,8 +134,6 @@ onready var oddletter2 = $OddLetterPos/Letter2
 onready var oddletter3 = $OddLetterPos/Letter3
 onready var oddletter4 = $OddLetterPos/Letter4
 onready var oddletter5 = $OddLetterPos/Letter5
-
-
 
 onready var evenletter1 = $EvenLetterPos/Letter1
 onready var evenletter2 = $EvenLetterPos/Letter2
@@ -275,6 +247,12 @@ func getLetterPositions(word_sprite_list: Array) -> bool:
 		letter5.set_scale(Vector2(letter_scale, letter_scale))
 	return true
 	
+func boost_movement() -> void:
+	pass
+	
 func _on_Area2D_body_entered(body: Node) -> void:
 	dead = true
+	body.death_direction()
+	
+
 

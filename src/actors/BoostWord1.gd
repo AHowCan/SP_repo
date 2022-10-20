@@ -27,10 +27,6 @@ onready var boost_controller = get_parent()
 onready var boostMiss_timer = $BoostMissTimer
 onready var boost_duration_timer = $BoostDurationTimer
 onready var word_label = $Label
-
-#func _init() -> void:
-#	word = generate_word()
-#	self.visible = false
 	
 func generate_word() -> String:
 	randomize()
