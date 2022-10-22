@@ -16,8 +16,8 @@ onready var letter2 = $LetterInstance/Letter_2
 onready var letter3 = $LetterInstance/Letter_3
 onready var letter4 = $LetterInstance/Letter_4
 onready var letter5 = $LetterInstance/Letter_5
-onready var level = get_parent().get_parent()
-onready var player = level.get_node("Player")
+onready var cloud = $Cloud
+
 
 onready var letter_list = {
 	65 : preload("res://assets/letters/A.png"),
@@ -173,6 +173,10 @@ func spawn(word: String):
 	self.word = word
 	var asciiword = getASCIIValue(word)
 	var is_finished = getLetterPositions(asciiword)
+	cloud.scale.x = len(asciiword) * letter_scale * 0.6
+	if len(asciiword) == 4:
+		cloud.global_position.x = cloud.global_position.x - letter_width * 0.4
+
 
 func _process(delta: float) -> void:
 	pass
@@ -252,7 +256,6 @@ func boost_movement() -> void:
 	
 func _on_Area2D_body_entered(body: Node) -> void:
 	dead = true
-	body.death_direction()
 	
 
 

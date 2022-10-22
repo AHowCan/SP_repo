@@ -13,8 +13,8 @@ var booster = 0
 var cur_position
 var target_coord
 var target_node
-export var MAX_SPEED = 120	
-export var ACCELERATION = 120
+export var MAX_SPEED = 140	
+export var ACCELERATION = 200
 export var boost_amount = 160
 export var TURNSPEED = 30
 var decelaration = 0 # originally 150
@@ -34,6 +34,7 @@ onready var direction_dot = $DirectionDot
 var typed = false
 var lock_direction = true
 var death_direction = Vector2.ZERO
+var unlock_direction = Vector2.ZERO
 var typist = [] 
 var typing = ""
 var wordList = []
@@ -61,15 +62,8 @@ func _physics_process(delta: float) -> void:
 		if not wordList.empty():
 			var temp_enem_loc = point_word_typed(delta, velocity)
 			if Vector2.ONE != temp_enem_loc and enemy_loc != temp_enem_loc:
+				lock_direction = true
 				enemy_loc = temp_enem_loc
-				#direction = enemy_loc
-			#direction = (enemy_loc - global_position).normalized()
-			if not lock_direction:
-				print('1 - %s' % death_direction)
-				direction = death_direction
-			else:
-				print('2 - %s' % direction)
-				direction = (enemy_loc - global_position).normalized()
 			velocity = boost_word_typed(delta, velocity)
 		typed = false
 	
@@ -85,6 +79,11 @@ func _physics_process(delta: float) -> void:
 
 func move_player(delta: float) -> Vector2:
 	direction = (enemy_loc - global_position).normalized()
+	if not lock_direction:
+		direction = unlock_direction
+	else:
+		direction = (enemy_loc - global_position).normalized()
+	
 	velocity = velocity.move_toward(direction * (speed + booster), ACCELERATION * delta)
 	velocity = move_and_slide(velocity)
 	return velocity
@@ -111,13 +110,13 @@ func _input(event: InputEvent) -> void:
 		typed = true
 	elif event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_SHIFT and not event.echo:
 		pass
-		print('death_dir %s' % death_direction)
 		#increase_speed()
 	elif event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_SPACE and not event.echo:
 		if lock_direction:
 			lock_direction = false
 		else:
 			lock_direction = true
+		unlock_direction = direction
 		#decrease_speed()
 	elif event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_ENTER  and not event.echo:
 		typist = []
@@ -209,9 +208,9 @@ func remove_word(index: int, word_list: Array) -> void:
 		boostNodes[index].dead = true
 		boostNodes[index].visible = false
 
-func death_direction() -> void:
-	print('set death_dir')
-	death_direction = direction
+#func death_direction() -> void:
+#	print('set death_dir')
+#	death_direction = direction
 
 func timer_for_word_boosts(start: bool) -> void:
 	if start:
