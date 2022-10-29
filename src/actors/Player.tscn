@@ -34,7 +34,7 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.0378413, -0.0378413 )
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 4 )
 animation = "idle"
 frame = 3

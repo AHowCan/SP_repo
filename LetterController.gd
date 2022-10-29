@@ -255,7 +255,8 @@ func boost_movement() -> void:
 	pass
 	
 func _on_Area2D_body_entered(body: Node) -> void:
-	dead = true
+	pass
+	#dead = true
 	
 
 

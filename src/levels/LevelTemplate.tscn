@@ -902,7 +902,8 @@ position = Vector2( -1, 0 )
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 7449.0
+margin_left = 1.0
+margin_right = 7450.0
 margin_bottom = 4544.0
 texture = ExtResource( 12 )
 stretch_mode = 2
@@ -916,6 +917,7 @@ region_enabled = true
 region_rect = Rect2( -1088, -848, 6848, 4720 )
 
 [node name="TileMap2" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource( 54 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 39, 0, 0, 40, 0, 0 )
@@ -993,13 +995,21 @@ position = Vector2( 626.36, 350.111 )
 scale = Vector2( 2, 2 )
 TURNSPEED = 60
 
+[node name="BoostWord1" parent="Player/BoostController" index="2"]
+visible = false
+
+[node name="BoostWord2" parent="Player/BoostController" index="3"]
+visible = false
+
+[node name="BoostWord3" parent="Player/BoostController" index="4"]
+visible = false
+
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../UI/Camera2D")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Camera2D" parent="UI" instance=ExtResource( 9 )]
-position = Vector2( 625.36, 350.111 )
 scale = Vector2( 2, 2 )
 
 [node name="TopLeft" parent="UI/Camera2D/Limits" index="0"]
@@ -1012,7 +1022,7 @@ position = Vector2( 7440, 4552 )
 script = ExtResource( 6 )
 
 [node name="border" type="Sprite" parent="UI/TypeBox"]
-position = Vector2( 824, 992 )
+position = Vector2( 744, 976 )
 scale = Vector2( 2.70584, 2.15178 )
 texture = ExtResource( 5 )
 centered = false
@@ -1023,10 +1033,10 @@ anchor_left = 0.00596833
 anchor_top = -0.104335
 anchor_right = 0.00596833
 anchor_bottom = -0.104335
-margin_left = 828.541
-margin_top = 1104.68
-margin_right = 1064.54
-margin_bottom = 1177.68
+margin_left = 756.541
+margin_top = 1088.68
+margin_right = 992.54
+margin_bottom = 1161.68
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 5 )
 valign = 1
