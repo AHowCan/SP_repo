@@ -79,7 +79,7 @@ var words = {
 	2 : "light",
 	3 : "laser",
 	4 : "bomb",
-	5 : "star",
+	5 : "dust",
 	6 : "word",
 	7 : "spike",
 	8 : "space",

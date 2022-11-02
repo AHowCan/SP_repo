@@ -34,7 +34,7 @@ script = ExtResource( 1 )
 modulate = Color( 1, 1, 1, 0.768627 )
 self_modulate = Color( 1, 0.690196, 1, 0.772549 )
 frames = SubResource( 2 )
-frame = 4
+frame = 8
 speed_scale = 0.5
 playing = true
 
