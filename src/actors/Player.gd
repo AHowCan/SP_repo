@@ -21,6 +21,7 @@ var decelaration = 0 # originally 150
 
 onready var level = get_tree().get_root().get_node("LevelTemplate")
 onready var textB = get_tree().get_root().get_node("LevelTemplate/UI/TypeBox")
+onready var texttarget = get_tree().get_root().get_node("LevelTemplate/UI/TargetWord")
 onready var speed_meter = get_tree().get_root().get_node("LevelTemplate/UI/SpeedMeter")
 #onready var enemy = get_node("../Area_1")
 onready var timer = get_node("Timer")
@@ -189,8 +190,7 @@ func point_word_typed(delta: float, velocity: Vector2) -> Vector2:
 				else:
 					if enemy.word.length() - 1 == i:
 						typist = []
-						#decelaration = 0
-						#booster = 0
+						texttarget.update_word(enemy.word)
 						level.index = index
 						#direction = (enemy.position - global_position).normalized()
 						speed = MAX_SPEED
