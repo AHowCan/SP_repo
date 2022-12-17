@@ -2,6 +2,8 @@ extends Actor
 
 onready var point = Vector2(600,400)
 var velocity = Vector2.ZERO
+var dir = Vector2.ZERO
+var prev_dir = Vector2.ZERO
 var direction = Vector2.ZERO
 var null_vector = Vector2.ZERO
 var enemy_loc = Vector2.ZERO
@@ -13,7 +15,7 @@ var booster = 0
 var cur_position
 var target_coord
 var target_node
-export var MAX_SPEED = 140	
+export var MAX_SPEED = 180	
 export var ACCELERATION = 200
 export var boost_amount = 160
 export var TURNSPEED = 30
@@ -31,6 +33,7 @@ onready var boost_controller = $BoostController
 onready var boost_word1 = get_node("BoostController/BoostWord1")
 #onready var word_boost2 = get_node("BoostController/BoostControl2")
 onready var direction_dot = $DirectionDot
+onready var movement_trail = $TailParticles
 
 var typed = false
 var lock_direction = true
@@ -70,17 +73,22 @@ func _physics_process(delta: float) -> void:
 	
 	### Check if player is moving
 	if is_player_moving() and !player_is_moving:
+		movement_trail.emitting= true
 		player_is_moving = true
 		boost_controller.start_boost_sequence = true
 
 	velocity = move_player(delta) # Move the player
 	if !speed_meter.zeroToMax:
 		speed_meter() # Calculate and update speed meter
-
+	
+	dir = self.global_position
+	movement_trail.direction = -(dir - prev_dir)
+	prev_dir = dir
 
 func move_player(delta: float) -> Vector2:
 	direction = (enemy_loc - global_position).normalized()
 	if not lock_direction:
+		
 		direction = unlock_direction
 	else:
 		direction = (enemy_loc - global_position).normalized()
@@ -114,8 +122,10 @@ func _input(event: InputEvent) -> void:
 		#increase_speed()
 	elif event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_SPACE and not event.echo:
 		if lock_direction:
+			texttarget.lock_unlock_border(not lock_direction)
 			lock_direction = false
 		else:
+			texttarget.lock_unlock_border(not lock_direction)
 			lock_direction = true
 		unlock_direction = direction
 		#decrease_speed()
@@ -190,6 +200,7 @@ func point_word_typed(delta: float, velocity: Vector2) -> Vector2:
 				else:
 					if enemy.word.length() - 1 == i:
 						typist = []
+						texttarget.lock_unlock_border(true)
 						texttarget.update_word(enemy.word)
 						level.index = index
 						#direction = (enemy.position - global_position).normalized()
@@ -207,10 +218,6 @@ func remove_word(index: int, word_list: Array) -> void:
 	if word_list == boostNodes:
 		boostNodes[index].dead = true
 		boostNodes[index].visible = false
-
-#func death_direction() -> void:
-#	print('set death_dir')
-#	death_direction = direction
 
 func timer_for_word_boosts(start: bool) -> void:
 	if start:

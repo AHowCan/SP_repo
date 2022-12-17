@@ -3,6 +3,7 @@
 [ext_resource path="res://src/Camera2D.gd" type="Script" id=1]
 
 [node name="Camera2D" type="Camera2D"]
+position = Vector2( -795, -4 )
 anchor_mode = 0
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true

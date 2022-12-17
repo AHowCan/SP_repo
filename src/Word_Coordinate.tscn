@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/dynamic_fonts/word_coordinate_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/Word_Coordinate.gd" type="Script" id=2]
+
+[node name="Word_Coordinate" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="letters" type="Node2D" parent="."]
+
+[node name="Letter1" type="Label" parent="letters"]
+margin_right = 7.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "S"
+align = 1
+valign = 1
+
+[node name="Letter2" type="Label" parent="letters"]
+margin_left = 7.0
+margin_right = 13.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "P"
+align = 1
+valign = 1
+
+[node name="Letter3" type="Label" parent="letters"]
+margin_left = 13.0
+margin_right = 19.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "A"
+align = 1
+valign = 1
+
+[node name="Letter4" type="Label" parent="letters"]
+margin_left = 19.0
+margin_right = 25.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "C"
+align = 1
+valign = 1
+
+[node name="Letter5" type="Label" parent="letters"]
+margin_left = 25.0
+margin_right = 31.0
+margin_bottom = 10.0
+custom_fonts/font = ExtResource( 1 )
+text = "E"
+align = 1
+valign = 1
