@@ -298,6 +298,8 @@ func hit_wall(body):
 		fsm = 2
 		print("hit wall, HP = %s" % body_HP)
 		hp.take_damage()
+		if hp.hp_tracker < 1:
+			game_over()
 		#print(str(collision_pos) + " " + str(self.position))
 		clear_text_target()
 		if body_HP > 1:
@@ -308,6 +310,7 @@ func hit_wall(body):
 	
 func game_over():
 	pass
+	get_tree().quit()
 
 func body_damage_anim():
 	pass

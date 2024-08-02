@@ -304,7 +304,7 @@ drag_right_margin = 0.05
 script = ExtResource("15")
 
 [node name="border" type="Sprite2D" parent="UI/TypeBox"]
-position = Vector2(7.77771, 306.778)
+position = Vector2(7.77778, 303.445)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("12")
 centered = false
@@ -316,10 +316,10 @@ anchor_left = -0.000324583
 anchor_top = 0.00181486
 anchor_right = 0.135613
 anchor_bottom = 0.0462593
-offset_left = 17.6521
-offset_top = 301.569
-offset_right = 17.6522
-offset_bottom = 321.569
+offset_left = 17.6522
+offset_top = 298.236
+offset_right = 17.6523
+offset_bottom = 318.236
 scale = Vector2(1.5, 1.5)
 size_flags_vertical = 1
 theme_override_fonts/font = SubResource("16")
@@ -354,6 +354,13 @@ theme_override_fonts/font = SubResource("16")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="UI/TargetWord"]
+offset_left = 3.33333
+offset_top = 348.889
+offset_right = 131.333
+offset_bottom = 371.889
+text = "Spacebar to lock"
 
 [node name="HP" type="Node" parent="UI"]
 script = ExtResource("20")

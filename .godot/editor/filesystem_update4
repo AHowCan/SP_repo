@@ -1,15 +1,5 @@
 res://default_env.tres
-res://src/levels/Level_0.tscn
-res://src/actors/Player_alpha.gd
-res://src/Word_Coordinate.gd
-res://src/actors/enemy_typeA.gd
-res://src/actors/enemy_typeA_path.gd
 res://src/UI_Player.tscn
-res://src/levels/Level_2.tscn
-res://src/actors/Enemy_typeA.tscn
-res://LetterController.tscn
-res://src/CoordinateController.tscn
-res://LetterController.gd
 res://src/Word_Coordinate.tscn
-res://src/levels/LevelTemplate.tscn
+res://src/actors/Player_alpha.gd
 res://src/HP.gd
