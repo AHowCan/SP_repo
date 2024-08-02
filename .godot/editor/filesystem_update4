@@ -12,3 +12,4 @@ res://src/CoordinateController.tscn
 res://LetterController.gd
 res://src/Word_Coordinate.tscn
 res://src/levels/LevelTemplate.tscn
+res://src/HP.gd

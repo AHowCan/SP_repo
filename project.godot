@@ -23,9 +23,10 @@ GlobalSetup="*res://src/global_setup.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="viewport"
+window/stretch/scale=0.9
 
 [editor]
 

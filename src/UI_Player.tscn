@@ -170,7 +170,7 @@ frame = 3
 flip_h = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("18")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -291,6 +291,8 @@ scale = Vector2(0.0850001, 0.0850001)
 texture = ExtResource("19")
 
 [node name="UI" type="CanvasLayer" parent="."]
+scale = Vector2(0.9, 0.9)
+transform = Transform2D(0.9, 0, 0, 0.9, 0, 0)
 
 [node name="Camera2D" parent="UI" instance=ExtResource("11")]
 position = Vector2(49, 0)
@@ -302,62 +304,63 @@ drag_right_margin = 0.05
 script = ExtResource("15")
 
 [node name="border" type="Sprite2D" parent="UI/TypeBox"]
-position = Vector2(157, 317)
+position = Vector2(7.77771, 306.778)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("12")
 centered = false
 
 [node name="Label" type="Label" parent="UI/TypeBox"]
 modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
-anchor_left = 0.000717211
-anchor_top = 0.00088857
-anchor_right = 0.144467
-anchor_bottom = 0.00088857
-offset_left = 172.541
-offset_top = 323.68
-offset_right = 172.541
-offset_bottom = 343.68
+anchor_left = -0.000324583
+anchor_top = 0.00181486
+anchor_right = 0.135613
+anchor_bottom = 0.0462593
+offset_left = 17.6521
+offset_top = 301.569
+offset_right = 17.6522
+offset_bottom = 321.569
+scale = Vector2(1.5, 1.5)
 size_flags_vertical = 1
 theme_override_fonts/font = SubResource("16")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TargetWord" type="Node" parent="UI"]
 script = ExtResource("17")
 
 [node name="border" type="Sprite2D" parent="UI/TargetWord"]
-visible = false
-position = Vector2(337, 315)
+position = Vector2(12.6667, 365.667)
 texture = ExtResource("12")
 centered = false
 
 [node name="lockborder" type="Sprite2D" parent="UI/TargetWord"]
-visible = false
-position = Vector2(387, 332)
+position = Vector2(62.6667, 382.667)
 texture = ExtResource("16")
 
 [node name="Label" type="Label" parent="UI/TargetWord"]
-visible = false
 modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
 anchor_left = 0.672
 anchor_top = 0.341
 anchor_right = 0.672
 anchor_bottom = 0.341
-offset_left = -86.08
-offset_top = 200.24
-offset_right = -0.0800171
-offset_bottom = 220.24
+offset_left = -463.413
+offset_top = 236.129
+offset_right = -377.413
+offset_bottom = 256.129
 size_flags_vertical = 1
 theme_override_fonts/font = SubResource("16")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="HP" type="Node" parent="UI"]
 script = ExtResource("20")
 
 [node name="border" type="Sprite2D" parent="UI/HP"]
 modulate = Color(0.0156863, 0.541176, 0.658824, 0.254902)
-position = Vector2(9, 314)
+position = Vector2(11.1111, 404.444)
 scale = Vector2(0.78, 1)
 texture = ExtResource("12")
 centered = false
@@ -369,14 +372,15 @@ anchor_left = 0.000717211
 anchor_top = 0.00088857
 anchor_right = 0.144467
 anchor_bottom = 0.00088857
-offset_left = 13.541
-offset_top = 319.68
-offset_right = 13.541
-offset_bottom = 339.68
+offset_left = 15.6521
+offset_top = 410.124
+offset_right = 15.6521
+offset_bottom = 430.124
 size_flags_vertical = 1
 theme_override_fonts/font = SubResource("16")
 text = "HP: 100"
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="SpeedMeter" type="AnimatedSprite2D" parent="UI"]
 visible = false

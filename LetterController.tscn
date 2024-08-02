@@ -83,7 +83,7 @@ texture = ExtResource("2")
 [node name="OddLetterPos" type="Node2D" parent="."]
 
 [node name="Letter1" type="Marker2D" parent="OddLetterPos"]
-position = Vector2(-48, 0)
+position = Vector2(-78, 0)
 
 [node name="Letter2" type="Marker2D" parent="OddLetterPos"]
 position = Vector2(-24, 0)
