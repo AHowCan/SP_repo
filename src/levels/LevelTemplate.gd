@@ -5,8 +5,8 @@ var enemyList = []
 var level_boostWordList = []
 var boostList = []
 var index = 0
-onready var player = get_node("Player")
-onready var entry = get_node("TitleBox")
+@onready var player = get_node("Player")
+@onready var entry = get_node("TitleBox")
 
 func _ready():
 #	wordList.append(enemy_1.word)

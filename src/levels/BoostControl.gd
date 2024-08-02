@@ -9,16 +9,16 @@ var boostDead = []
 var total_boost
 
 #export var FRICTION = 500
-export var MAX_SPEED = 15
-export var ACCELERATION = 15
+@export var MAX_SPEED = 15
+@export var ACCELERATION = 15
 var increase_speed = 1
 
-onready var player = get_parent().get_parent()
-onready var dir = player.direction
-onready var vel = player.velocity
+@onready var player = get_parent().get_parent()
+@onready var dir = player.direction
+@onready var vel = player.velocity
 
-onready var bword = get_node("BoostWord")
-onready var timer = $Timer
+@onready var bword = get_node("BoostWord")
+@onready var timer = $Timer
 var duration = 3
 var count = 0
 
@@ -52,7 +52,9 @@ func _physics_process(delta: float) -> void:
 		if get_boost:
 			self.visible = true
 			word_velocity = word_velocity.move_toward(-dir * MAX_SPEED, ACCELERATION * delta)
-			word_velocity = move_and_slide(word_velocity)
+			set_velocity(word_velocity)
+			move_and_slide()
+			word_velocity = velocity
 		else:
 			self.visible = false
 			self.position = player.position

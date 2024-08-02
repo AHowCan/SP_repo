@@ -8,17 +8,17 @@ var boost_interval = 2
 var boost_id = 0
 var max_boost_id = 3
 
-onready var boost_word1 = $BoostWord1
-onready var boost_word2 = $BoostWord2
-onready var boost_word3 = $BoostWord3
-onready var boost_words_list = []
+@onready var boost_word1 = $BoostWord1
+@onready var boost_word2 = $BoostWord2
+@onready var boost_word3 = $BoostWord3
+@onready var boost_words_list = []
 
-onready var player = get_parent()
-onready var player_dir = player.direction
-onready var player_vel = player.velocity
+@onready var player = get_parent()
+@onready var player_dir = player.direction
+@onready var player_vel = player.velocity
 
-onready var player_move_timer = $PlayerMoveTimer
-onready var boost_word_interval = $BoostIntervalTimer
+@onready var player_move_timer = $PlayerMoveTimer
+@onready var boost_word_interval = $BoostIntervalTimer
 
 func _ready():
 	boost_words_list.append(boost_word1)

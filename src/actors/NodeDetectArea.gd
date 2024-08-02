@@ -22,18 +22,9 @@ var words = {
 	19: "air",
 	20: "empty"
 }
-onready var player = get_parent()
+@onready var player = get_parent()
 
 func generate_word() -> String:
 	randomize()
 	var index = randi()%20+1
 	return words[index]
-
-#func _on_NodeDetectArea_area_entered(area: Area2D) -> void:
-#	print(area.get_parent().name)
-#	var mnode = area.get_parent()
-#	mnode.visible = true
-#	var mnode_label = mnode.get_child(2)
-#	var word = generate_word()
-#	mnode_label.text = word
-

@@ -1,6 +1,6 @@
 extends Actor
 
-onready var point = Vector2(600,400)
+@onready var point = Vector2(600,400)
 var velocity = Vector2.ZERO
 var dir = Vector2.ZERO
 var prev_dir = Vector2.ZERO
@@ -15,25 +15,25 @@ var booster = 0
 var cur_position
 var target_coord
 var target_node
-export var MAX_SPEED = 180	
-export var ACCELERATION = 200
-export var boost_amount = 160
-export var TURNSPEED = 30
+@export var MAX_SPEED = 180	
+@export var ACCELERATION = 200
+@export var boost_amount = 160
+@export var TURNSPEED = 30
 var decelaration = 0 # originally 150
 
-onready var level = get_tree().get_root().get_node("LevelTemplate")
-onready var textB = get_tree().get_root().get_node("LevelTemplate/UI/TypeBox")
-onready var texttarget = get_tree().get_root().get_node("LevelTemplate/UI/TargetWord")
-onready var speed_meter = get_tree().get_root().get_node("LevelTemplate/UI/SpeedMeter")
+@onready var level = get_tree().get_root().get_node("LevelTemplate")
+@onready var textB = get_tree().get_root().get_node("LevelTemplate/UI/TypeBox")
+@onready var texttarget = get_tree().get_root().get_node("LevelTemplate/UI/TargetWord")
+@onready var speed_meter = get_tree().get_root().get_node("LevelTemplate/UI/SpeedMeter")
 #onready var enemy = get_node("../Area_1")
-onready var timer = get_node("Timer")
+@onready var timer = get_node("Timer")
 #onready var boost_respawn_timer = $Boost_Respawn
-onready var boost_duration_timer = $BoostController/BoostWord1/BoostDurationTimer
-onready var boost_controller = $BoostController
-onready var boost_word1 = get_node("BoostController/BoostWord1")
+@onready var boost_duration_timer = $BoostController/BoostWord1/BoostDurationTimer
+@onready var boost_controller = $BoostController
+@onready var boost_word1 = get_node("BoostController/BoostWord1")
 #onready var word_boost2 = get_node("BoostController/BoostControl2")
-onready var direction_dot = $DirectionDot
-onready var movement_trail = $TailParticles
+@onready var direction_dot = $DirectionDot
+@onready var movement_trail = $TailParticles
 
 var typed = false
 var lock_direction = true
@@ -51,19 +51,19 @@ var output_boost_word = false
 
 var test_var = Vector2.ZERO
 
-onready var area_1
+@onready var area_1
 
 func _ready():
 	set_process_input(true) 
 	enemy_list = level.enemyList
 	cur_position = Vector2(self.position.x, self.position.y)
 	target_coord = cur_position
-	$AnimatedSprite.play("idle")
+	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
 	### Check various typing matches
 	if typed:
-		if not wordList.empty():
+		if not wordList.is_empty():
 			var temp_enem_loc = point_word_typed(delta, velocity)
 			if Vector2.ONE != temp_enem_loc and enemy_loc != temp_enem_loc:
 				lock_direction = true
@@ -94,7 +94,9 @@ func move_player(delta: float) -> Vector2:
 		direction = (enemy_loc - global_position).normalized()
 	
 	velocity = velocity.move_toward(direction * (speed + booster), ACCELERATION * delta)
-	velocity = move_and_slide(velocity)
+	set_velocity(velocity)
+	move_and_slide()
+	velocity = velocity
 	return velocity
 	
 func speed_meter() -> void:
@@ -113,14 +115,14 @@ func is_player_moving() -> bool:
 
 # Interrupt handler by godot calls when an 'event' happens (key pressed)
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_BACKSPACE  and not event.echo:
+	if event is InputEventKey and event.is_pressed() == true and event.keycode == KEY_BACKSPACE  and not event.echo:
 		typist.pop_back()
 		typing.erase(-1,  1)
 		typed = true
-	elif event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_SHIFT and not event.echo:
+	elif event is InputEventKey and event.is_pressed() == true and event.keycode == KEY_SHIFT and not event.echo:
 		pass
 		#increase_speed()
-	elif event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_SPACE and not event.echo:
+	elif event is InputEventKey and event.is_pressed() == true and event.keycode == KEY_SPACE and not event.echo:
 		if lock_direction:
 			texttarget.lock_unlock_border(not lock_direction)
 			lock_direction = false
@@ -129,12 +131,12 @@ func _input(event: InputEvent) -> void:
 			lock_direction = true
 		unlock_direction = direction
 		#decrease_speed()
-	elif event is InputEventKey and event.is_pressed() == true and event.scancode == KEY_ENTER  and not event.echo:
+	elif event is InputEventKey and event.is_pressed() == true and event.keycode == KEY_ENTER  and not event.echo:
 		typist = []
 		typing = ""
 		typed = false
 	elif event is InputEventKey and event.is_pressed() == true and not event.echo:
-		typist.append(OS.get_scancode_string(event.scancode).to_lower())
+		typist.append(OS.get_keycode_string(event.keycode).to_lower())
 		if typist.size() > 7:
 			typist.pop_front()
 		typed = true
@@ -149,7 +151,7 @@ func get_flight_velocity() -> Vector2:
 	return velocity
 	
 func update_player_text_box() -> void:
-	if !typist.empty():
+	if !typist.is_empty():
 		# Combine array into single string for display
 		for i in range(0, typist.size()):
 			typing += typist[i]

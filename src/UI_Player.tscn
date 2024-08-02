@@ -1,0 +1,400 @@
+[gd_scene load_steps=38 format=3 uid="uid://ctn5gcr5fnlm5"]
+
+[ext_resource type="Texture2D" uid="uid://b03mljj7k1yll" path="res://assets/player/moving/p_ship_4.png" id="1"]
+[ext_resource type="Script" path="res://src/actors/NodeDetectArea.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dh6cdp3ev2cbb" path="res://assets/player/moving/p_ship_2.png" id="3"]
+[ext_resource type="Script" path="res://src/actors/BoostController.gd" id="4"]
+[ext_resource type="FontFile" path="res://fonts/BoostFont.tres" id="5"]
+[ext_resource type="Texture2D" uid="uid://c3cnoq016eg0g" path="res://assets/player/moving/p_ship_1.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cwybsgqminji7" path="res://assets/player/moving/p_ship_3.png" id="7"]
+[ext_resource type="Script" path="res://src/actors/BoostWord1.gd" id="8"]
+[ext_resource type="Script" path="res://src/actors/Player_alpha.gd" id="9"]
+[ext_resource type="Script" path="res://src/levels/SpeedMeter.gd" id="10"]
+[ext_resource type="PackedScene" path="res://src/Camera2D.tscn" id="11"]
+[ext_resource type="Texture2D" uid="uid://c255d4wykm02d" path="res://assets/pixil-frame-0.png" id="12"]
+[ext_resource type="FontFile" uid="uid://ct76i51w7cj82" path="res://MicroSix-MVRjw.ttf" id="13"]
+[ext_resource type="Texture2D" uid="uid://cn7okqo1uiun1" path="res://assets/Speed_Bar_fames.png" id="14"]
+[ext_resource type="Script" path="res://src/levels/TypeBox.gd" id="15"]
+[ext_resource type="Texture2D" uid="uid://bhni4jr4uqkmt" path="res://assets/images/letter_box_lock.png" id="16"]
+[ext_resource type="Script" path="res://src/levels/TargetWord.gd" id="17"]
+[ext_resource type="Texture2D" uid="uid://q3dbyudpwi8e" path="res://assets/player/green_ship.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://b3c5y8qdxsy0y" path="res://assets/coin.png" id="19"]
+[ext_resource type="Script" path="res://src/HP.gd" id="20"]
+
+[sub_resource type="Environment" id="5"]
+background_mode = 4
+glow_enabled = true
+glow_hdr_threshold = 1.5
+
+[sub_resource type="CanvasItemMaterial" id="6"]
+
+[sub_resource type="SpriteFrames" id="4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 12.8689
+
+[sub_resource type="CircleShape2D" id="2"]
+
+[sub_resource type="CircleShape2D" id="3"]
+radius = 14.3046
+
+[sub_resource type="FontFile" id="16"]
+fallbacks = Array[Font]([ExtResource("13")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="17"]
+atlas = ExtResource("14")
+region = Rect2(0, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("14")
+region = Rect2(200, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("14")
+region = Rect2(400, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("14")
+region = Rect2(600, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("14")
+region = Rect2(800, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("14")
+region = Rect2(1000, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="12"]
+atlas = ExtResource("14")
+region = Rect2(1200, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="13"]
+atlas = ExtResource("14")
+region = Rect2(1400, 0, 200, 100)
+
+[sub_resource type="AtlasTexture" id="14"]
+atlas = ExtResource("14")
+region = Rect2(1600, 0, 200, 100)
+
+[sub_resource type="SpriteFrames" id="15"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("17")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}, {
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("9")
+}, {
+"duration": 1.0,
+"texture": SubResource("10")
+}, {
+"duration": 1.0,
+"texture": SubResource("11")
+}, {
+"duration": 1.0,
+"texture": SubResource("12")
+}, {
+"duration": 1.0,
+"texture": SubResource("13")
+}, {
+"duration": 1.0,
+"texture": SubResource("14")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="UI_Player" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(96.1525, 151.741)
+scale = Vector2(0.5, 0.5)
+collision_mask = 10
+script = ExtResource("9")
+MAX_SPEED = 120
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Player"]
+environment = SubResource("5")
+
+[node name="TailParticles" type="CPUParticles2D" parent="Player"]
+modulate = Color(0.705882, 0.878431, 0.847059, 1)
+material = SubResource("6")
+emitting = false
+amount = 20
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 12.17
+direction = Vector2(-1, 0)
+spread = 5.71
+gravity = Vector2(0, 0)
+color = Color(0.7387, 0.89, 0.857218, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+visible = false
+position = Vector2(-0.0378413, -0.0378413)
+sprite_frames = SubResource("4")
+animation = &"idle"
+frame = 3
+flip_h = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+visible = false
+shape = SubResource("1")
+
+[node name="Boost_Duration" type="Timer" parent="Player"]
+
+[node name="BoostController" type="Node" parent="Player"]
+script = ExtResource("4")
+
+[node name="PlayerMoveTimer" type="Timer" parent="Player/BoostController"]
+
+[node name="BoostIntervalTimer" type="Timer" parent="Player/BoostController"]
+
+[node name="BoostWord1" type="CharacterBody2D" parent="Player/BoostController"]
+position = Vector2(96.1525, 151.741)
+script = ExtResource("8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/BoostController/BoostWord1"]
+visible = false
+position = Vector2(-0.222809, -0.222824)
+shape = SubResource("2")
+disabled = true
+
+[node name="Label" type="Label" parent="Player/BoostController/BoostWord1"]
+visible = false
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0.627451, 0.54902, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="BoostMissTimer" type="Timer" parent="Player/BoostController/BoostWord1"]
+
+[node name="BoostDurationTimer" type="Timer" parent="Player/BoostController/BoostWord1"]
+
+[node name="BoostWord2" type="CharacterBody2D" parent="Player/BoostController"]
+position = Vector2(96.1525, 151.741)
+script = ExtResource("8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/BoostController/BoostWord2"]
+visible = false
+position = Vector2(-0.222809, -0.222824)
+shape = SubResource("2")
+disabled = true
+
+[node name="Label" type="Label" parent="Player/BoostController/BoostWord2"]
+visible = false
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(1, 0.560784, 0.737255, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="BoostMissTimer" type="Timer" parent="Player/BoostController/BoostWord2"]
+
+[node name="BoostDurationTimer" type="Timer" parent="Player/BoostController/BoostWord2"]
+
+[node name="BoostWord3" type="CharacterBody2D" parent="Player/BoostController"]
+position = Vector2(96.1525, 151.741)
+script = ExtResource("8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/BoostController/BoostWord3"]
+visible = false
+position = Vector2(-0.222809, -0.222824)
+shape = SubResource("2")
+disabled = true
+
+[node name="Label" type="Label" parent="Player/BoostController/BoostWord3"]
+visible = false
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 23.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0.788235, 1, 0.368627, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="BoostMissTimer" type="Timer" parent="Player/BoostController/BoostWord3"]
+
+[node name="BoostDurationTimer" type="Timer" parent="Player/BoostController/BoostWord3"]
+
+[node name="Timer" type="Timer" parent="Player"]
+
+[node name="NodeDetectArea" type="Area2D" parent="Player"]
+visible = false
+gravity = 0.0
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/NodeDetectArea"]
+visible = false
+shape = SubResource("3")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.01
+drag_right_margin = 0.01
+
+[node name="Timers" type="Node2D" parent="Player"]
+
+[node name="recover_timer" type="Timer" parent="Player/Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="dirdot" type="Sprite2D" parent="Player"]
+visible = false
+position = Vector2(-66.3049, 50.5181)
+scale = Vector2(0.0850001, 0.0850001)
+texture = ExtResource("19")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" parent="UI" instance=ExtResource("11")]
+position = Vector2(49, 0)
+offset = Vector2(-50, 0)
+position_smoothing_speed = 10.0
+drag_right_margin = 0.05
+
+[node name="TypeBox" type="Node" parent="UI"]
+script = ExtResource("15")
+
+[node name="border" type="Sprite2D" parent="UI/TypeBox"]
+position = Vector2(157, 317)
+texture = ExtResource("12")
+centered = false
+
+[node name="Label" type="Label" parent="UI/TypeBox"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_left = 0.000717211
+anchor_top = 0.00088857
+anchor_right = 0.144467
+anchor_bottom = 0.00088857
+offset_left = 172.541
+offset_top = 323.68
+offset_right = 172.541
+offset_bottom = 343.68
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("16")
+vertical_alignment = 1
+
+[node name="TargetWord" type="Node" parent="UI"]
+script = ExtResource("17")
+
+[node name="border" type="Sprite2D" parent="UI/TargetWord"]
+visible = false
+position = Vector2(337, 315)
+texture = ExtResource("12")
+centered = false
+
+[node name="lockborder" type="Sprite2D" parent="UI/TargetWord"]
+visible = false
+position = Vector2(387, 332)
+texture = ExtResource("16")
+
+[node name="Label" type="Label" parent="UI/TargetWord"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_left = 0.672
+anchor_top = 0.341
+anchor_right = 0.672
+anchor_bottom = 0.341
+offset_left = -86.08
+offset_top = 200.24
+offset_right = -0.0800171
+offset_bottom = 220.24
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("16")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HP" type="Node" parent="UI"]
+script = ExtResource("20")
+
+[node name="border" type="Sprite2D" parent="UI/HP"]
+modulate = Color(0.0156863, 0.541176, 0.658824, 0.254902)
+position = Vector2(9, 314)
+scale = Vector2(0.78, 1)
+texture = ExtResource("12")
+centered = false
+
+[node name="hp" type="Label" parent="UI/HP"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_left = 0.000717211
+anchor_top = 0.00088857
+anchor_right = 0.144467
+anchor_bottom = 0.00088857
+offset_left = 13.541
+offset_top = 319.68
+offset_right = 13.541
+offset_bottom = 339.68
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource("16")
+text = "HP: 100"
+vertical_alignment = 1
+
+[node name="SpeedMeter" type="AnimatedSprite2D" parent="UI"]
+visible = false
+position = Vector2(629.201, 674.916)
+scale = Vector2(1.00374, 0.584749)
+sprite_frames = SubResource("15")
+script = ExtResource("10")
+
+[node name="ZeroToMaxTimer" type="Timer" parent="UI/SpeedMeter"]
+
+[connection signal="timeout" from="Player/Boost_Duration" to="Player" method="_on_Boost_Duration_timeout"]
+[connection signal="timeout" from="Player/BoostController/PlayerMoveTimer" to="Player/BoostController" method="_on_PlayerMoveTimer_timeout"]
+[connection signal="timeout" from="Player/BoostController/BoostIntervalTimer" to="Player/BoostController" method="_on_BoostIntervalTimer_timeout"]
+[connection signal="timeout" from="Player/BoostController/BoostWord1/BoostMissTimer" to="Player/BoostController/BoostWord1" method="_on_BoostMissTimer_timeout"]
+[connection signal="timeout" from="Player/BoostController/BoostWord1/BoostDurationTimer" to="Player/BoostController/BoostWord1" method="_on_BoostDurationTimer_timeout"]
+[connection signal="timeout" from="Player/BoostController/BoostWord2/BoostMissTimer" to="Player/BoostController/BoostWord2" method="_on_BoostMissTimer_timeout"]
+[connection signal="timeout" from="Player/BoostController/BoostWord2/BoostDurationTimer" to="Player/BoostController/BoostWord2" method="_on_BoostDurationTimer_timeout"]
+[connection signal="timeout" from="Player/BoostController/BoostWord3/BoostMissTimer" to="Player/BoostController/BoostWord3" method="_on_BoostMissTimer_timeout"]
+[connection signal="timeout" from="Player/BoostController/BoostWord3/BoostDurationTimer" to="Player/BoostController/BoostWord3" method="_on_BoostDurationTimer_timeout"]
+[connection signal="body_entered" from="Player/NodeDetectArea" to="Player" method="_on_NodeDetectArea_body_entered"]
+[connection signal="timeout" from="UI/SpeedMeter/ZeroToMaxTimer" to="UI/SpeedMeter" method="_on_ZeroToMaxTimer_timeout"]

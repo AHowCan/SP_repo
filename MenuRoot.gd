@@ -7,10 +7,10 @@ var current_menu
 var menu_stack := []
 var menu_transition_time := 0.5
 
-onready var menu_1 = $MainMenu
-onready var menu_2 = $SideMenu
-onready var tween = $Tween
-onready var anim = $AnimationPlayer
+@onready var menu_1 = $MainMenu
+@onready var menu_2 = $SideMenu
+@onready var tween = $Tween
+@onready var anim = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,14 +25,14 @@ func move_to_next_menu(next_menu_id: String):
 	#next_menu.rect_global_position = menu_origin_pos
 	tween.interpolate_property(
 		current_menu, 
-		"rect_global_position", 
-		current_menu.rect_global_position, 
+		"global_position", 
+		current_menu.global_position, 
 		Vector2(-menu_origin_size.x, 0),
 		menu_transition_time,Tween.TRANS_SINE)
 	tween.interpolate_property(
 		next_menu, 
-		"rect_global_position", 
-		next_menu.rect_global_position, 
+		"global_position", 
+		next_menu.global_position, 
 		menu_origin_pos,
 		menu_transition_time,Tween.TRANS_SINE)
 	tween.start()
@@ -46,14 +46,14 @@ func move_to_prev_menu():
 		#current_menu.rect_global_position = Vector2(menu_origin_size.x, 0)
 		tween.interpolate_property(
 			prev_menu, 
-			"rect_global_position", 
-			prev_menu.rect_global_position, 
+			"global_position", 
+			prev_menu.global_position, 
 			menu_origin_pos,
 			menu_transition_time)
 		tween.interpolate_property(
 			current_menu, 
-			"rect_global_position", 
-			current_menu.rect_global_position, 
+			"global_position", 
+			current_menu.global_position, 
 			Vector2(menu_origin_size.x, 0),
 			menu_transition_time)
 		tween.start()

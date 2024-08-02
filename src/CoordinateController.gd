@@ -1,6 +1,7 @@
 extends Node2D
 
 var word_coordinate_list = []
+var word_list = []
 var word_coordinate_positions = []
 var letter_scene = preload("res://src/Word_Coordinate.tscn")
 
@@ -11,7 +12,7 @@ func create_word_coordinate(location:Vector2, word:String=""):
 	if word == "":
 		word = random_word()
 		
-	var instance = letter_scene.instance()
+	var instance = letter_scene.instantiate()
 	add_child(instance)
 	
 	instance.create_word_coordinate(word)
@@ -19,10 +20,21 @@ func create_word_coordinate(location:Vector2, word:String=""):
 	
 	#word_coordinate_positions.append(location)
 	word_coordinate_list.append(instance)
+	word_list.append(word)
 
 func random_word() -> String:
-	randomize()
-	var index = randi() % len(words) + 1
+	#randomize()
+	var index = (randi() % len(words)) + 1
+	# return words[index]
+	
+	while word_used[index] != 0:
+		index +=1
+		if index > len(word_used):
+			index = 1
+		
+		#index = randi() % nnControll.word_count + 1
+	
+	word_used[index] = 1
 	return words[index]
 
 var words = {

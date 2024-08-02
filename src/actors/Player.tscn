@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://assets/player/moving/p_ship_2.png" type="Texture" id=1]
+[ext_resource path="res://assets/player/moving/p_ship_2.png" type="Texture2D" id=1]
 [ext_resource path="res://src/actors/Player.gd" type="Script" id=2]
 [ext_resource path="res://src/actors/BoostController.gd" type="Script" id=3]
 [ext_resource path="res://src/actors/BoostWord1.gd" type="Script" id=4]
 [ext_resource path="res://src/actors/NodeDetectArea.gd" type="Script" id=5]
-[ext_resource path="res://assets/coin.png" type="Texture" id=6]
-[ext_resource path="res://fonts/BoostFont.tres" type="DynamicFont" id=7]
-[ext_resource path="res://assets/player/moving/p_ship_1.png" type="Texture" id=8]
-[ext_resource path="res://assets/player/moving/p_ship_3.png" type="Texture" id=9]
-[ext_resource path="res://assets/player/moving/p_ship_4.png" type="Texture" id=10]
+[ext_resource path="res://assets/coin.png" type="Texture2D" id=6]
+[ext_resource path="res://fonts/BoostFont.tres" type="FontFile" id=7]
+[ext_resource path="res://assets/player/moving/p_ship_1.png" type="Texture2D" id=8]
+[ext_resource path="res://assets/player/moving/p_ship_3.png" type="Texture2D" id=9]
+[ext_resource path="res://assets/player/moving/p_ship_4.png" type="Texture2D" id=10]
 
 [sub_resource type="Environment" id=5]
 background_mode = 4
@@ -34,7 +34,7 @@ radius = 12.8689
 [sub_resource type="CircleShape2D" id=3]
 radius = 152.387
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2( 96.1525, 151.741 )
 scale = Vector2( 0.75, 0.75 )
 collision_mask = 10
@@ -61,14 +61,14 @@ scale_amount = 2.0
 scale_amount_random = 0.5
 color = Color( 0.533333, 0.827451, 1, 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2( -0.0378413, -0.0378413 )
 frames = SubResource( 4 )
 animation = "idle"
 frame = 3
 flip_h = true
 
-[node name="DirectionDot" type="Sprite" parent="."]
+[node name="DirectionDot" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 6 )
@@ -85,7 +85,7 @@ script = ExtResource( 3 )
 
 [node name="BoostIntervalTimer" type="Timer" parent="BoostController"]
 
-[node name="BoostWord1" type="KinematicBody2D" parent="BoostController"]
+[node name="BoostWord1" type="CharacterBody2D" parent="BoostController"]
 position = Vector2( 96.1525, 151.741 )
 script = ExtResource( 4 )
 
@@ -96,19 +96,19 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="Label" type="Label" parent="BoostController/BoostWord1"]
-margin_left = -20.0
-margin_top = -23.0
-margin_right = 20.0
-margin_bottom = 22.0
-custom_colors/font_color = Color( 0.627451, 0.54902, 1, 1 )
-custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
-custom_fonts/font = ExtResource( 7 )
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color( 0.627451, 0.54902, 1, 1 )
+theme_override_colors/font_outline_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = ExtResource( 7 )
 
 [node name="BoostMissTimer" type="Timer" parent="BoostController/BoostWord1"]
 
 [node name="BoostDurationTimer" type="Timer" parent="BoostController/BoostWord1"]
 
-[node name="BoostWord2" type="KinematicBody2D" parent="BoostController"]
+[node name="BoostWord2" type="CharacterBody2D" parent="BoostController"]
 position = Vector2( 96.1525, 151.741 )
 script = ExtResource( 4 )
 
@@ -119,13 +119,13 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="Label" type="Label" parent="BoostController/BoostWord2"]
-margin_left = -20.0
-margin_top = -23.0
-margin_right = 20.0
-margin_bottom = 22.0
-custom_colors/font_color = Color( 1, 0.560784, 0.737255, 1 )
-custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
-custom_fonts/font = ExtResource( 7 )
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color( 1, 0.560784, 0.737255, 1 )
+theme_override_colors/font_outline_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -134,7 +134,7 @@ __meta__ = {
 
 [node name="BoostDurationTimer" type="Timer" parent="BoostController/BoostWord2"]
 
-[node name="BoostWord3" type="KinematicBody2D" parent="BoostController"]
+[node name="BoostWord3" type="CharacterBody2D" parent="BoostController"]
 position = Vector2( 96.1525, 151.741 )
 script = ExtResource( 4 )
 
@@ -145,13 +145,13 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="Label" type="Label" parent="BoostController/BoostWord3"]
-margin_left = -20.0
-margin_top = -23.0
-margin_right = 23.0
-margin_bottom = 22.0
-custom_colors/font_color = Color( 0.788235, 1, 0.368627, 1 )
-custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
-custom_fonts/font = ExtResource( 7 )
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 23.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color( 0.788235, 1, 0.368627, 1 )
+theme_override_colors/font_outline_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = ExtResource( 7 )
 
 [node name="BoostMissTimer" type="Timer" parent="BoostController/BoostWord3"]
 

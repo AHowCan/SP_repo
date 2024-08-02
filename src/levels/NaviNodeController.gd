@@ -57,8 +57,8 @@ var word_used = {
 	25:0
 }
 
-onready var level = get_parent()
-onready var player = level.get_node("Player")
+@onready var level = get_parent()
+@onready var player = level.get_node("Player")
 
 func _ready():
 	for i in self.get_children():

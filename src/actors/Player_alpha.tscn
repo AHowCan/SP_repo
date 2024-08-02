@@ -1,0 +1,175 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/player/moving/p_ship_2.png" type="Texture2D" id=1]
+[ext_resource path="res://src/actors/Player_alpha.gd" type="Script" id=2]
+[ext_resource path="res://src/actors/BoostController.gd" type="Script" id=3]
+[ext_resource path="res://src/actors/BoostWord1.gd" type="Script" id=4]
+[ext_resource path="res://src/actors/NodeDetectArea.gd" type="Script" id=5]
+[ext_resource path="res://fonts/BoostFont.tres" type="FontFile" id=7]
+[ext_resource path="res://assets/player/moving/p_ship_1.png" type="Texture2D" id=8]
+[ext_resource path="res://assets/player/moving/p_ship_3.png" type="Texture2D" id=9]
+[ext_resource path="res://assets/player/moving/p_ship_4.png" type="Texture2D" id=10]
+
+[sub_resource type="Environment" id=5]
+background_mode = 4
+glow_enabled = true
+glow_hdr_threshold = 1.5
+
+[sub_resource type="CanvasItemMaterial" id=6]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 12.8689
+
+[sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 152.387
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2( 96.1525, 151.741 )
+scale = Vector2( 0.75, 0.75 )
+collision_mask = 10
+script = ExtResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="TailParticles" type="CPUParticles2D" parent="."]
+modulate = Color( 20.4102, 1.5, 25, 1 )
+material = SubResource( 6 )
+emitting = false
+amount = 20
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 12.17
+direction = Vector2( -1, 0 )
+spread = 5.71
+gravity = Vector2( 0, 0 )
+initial_velocity = 113.49
+damping = 41.66
+damping_random = 0.53
+scale_amount = 2.0
+scale_amount_random = 0.5
+color = Color( 0.533333, 0.827451, 1, 1 )
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2( -0.0378413, -0.0378413 )
+frames = SubResource( 4 )
+animation = "idle"
+frame = 3
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Boost_Duration" type="Timer" parent="."]
+
+[node name="BoostController" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="PlayerMoveTimer" type="Timer" parent="BoostController"]
+
+[node name="BoostIntervalTimer" type="Timer" parent="BoostController"]
+
+[node name="BoostWord1" type="CharacterBody2D" parent="BoostController"]
+position = Vector2( 96.1525, 151.741 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoostController/BoostWord1"]
+visible = false
+position = Vector2( -0.222809, -0.222824 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Label" type="Label" parent="BoostController/BoostWord1"]
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color( 0.627451, 0.54902, 1, 1 )
+theme_override_colors/font_outline_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = ExtResource( 7 )
+
+[node name="BoostMissTimer" type="Timer" parent="BoostController/BoostWord1"]
+
+[node name="BoostDurationTimer" type="Timer" parent="BoostController/BoostWord1"]
+
+[node name="BoostWord2" type="CharacterBody2D" parent="BoostController"]
+position = Vector2( 96.1525, 151.741 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoostController/BoostWord2"]
+visible = false
+position = Vector2( -0.222809, -0.222824 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Label" type="Label" parent="BoostController/BoostWord2"]
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color( 1, 0.560784, 0.737255, 1 )
+theme_override_colors/font_outline_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoostMissTimer" type="Timer" parent="BoostController/BoostWord2"]
+
+[node name="BoostDurationTimer" type="Timer" parent="BoostController/BoostWord2"]
+
+[node name="BoostWord3" type="CharacterBody2D" parent="BoostController"]
+position = Vector2( 96.1525, 151.741 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoostController/BoostWord3"]
+visible = false
+position = Vector2( -0.222809, -0.222824 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Label" type="Label" parent="BoostController/BoostWord3"]
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 23.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color( 0.788235, 1, 0.368627, 1 )
+theme_override_colors/font_outline_color = Color( 1, 1, 1, 1 )
+theme_override_fonts/font = ExtResource( 7 )
+
+[node name="BoostMissTimer" type="Timer" parent="BoostController/BoostWord3"]
+
+[node name="BoostDurationTimer" type="Timer" parent="BoostController/BoostWord3"]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="NodeDetectArea" type="Area2D" parent="."]
+visible = false
+gravity = 0.0
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NodeDetectArea"]
+visible = false
+shape = SubResource( 3 )
+disabled = true
+
+[connection signal="timeout" from="Boost_Duration" to="." method="_on_Boost_Duration_timeout"]
+[connection signal="timeout" from="BoostController/PlayerMoveTimer" to="BoostController" method="_on_PlayerMoveTimer_timeout"]
+[connection signal="timeout" from="BoostController/BoostIntervalTimer" to="BoostController" method="_on_BoostIntervalTimer_timeout"]
+[connection signal="timeout" from="BoostController/BoostWord1/BoostMissTimer" to="BoostController/BoostWord1" method="_on_BoostMissTimer_timeout"]
+[connection signal="timeout" from="BoostController/BoostWord1/BoostDurationTimer" to="BoostController/BoostWord1" method="_on_BoostDurationTimer_timeout"]
+[connection signal="timeout" from="BoostController/BoostWord2/BoostMissTimer" to="BoostController/BoostWord2" method="_on_BoostMissTimer_timeout"]
+[connection signal="timeout" from="BoostController/BoostWord2/BoostDurationTimer" to="BoostController/BoostWord2" method="_on_BoostDurationTimer_timeout"]
+[connection signal="timeout" from="BoostController/BoostWord3/BoostMissTimer" to="BoostController/BoostWord3" method="_on_BoostMissTimer_timeout"]
+[connection signal="timeout" from="BoostController/BoostWord3/BoostDurationTimer" to="BoostController/BoostWord3" method="_on_BoostDurationTimer_timeout"]
+[connection signal="area_entered" from="NodeDetectArea" to="NodeDetectArea" method="_on_NodeDetectArea_area_entered"]

@@ -2,8 +2,8 @@ extends Node2D
 
 var word = ""
 var dead = false
-onready var label = get_node("Label")
-onready var nnControll = get_parent()
+@onready var label = get_node("Label")
+@onready var nnControll = get_parent()
 var player = null
 
 var words = {

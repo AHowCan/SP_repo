@@ -1,10 +1,10 @@
 extends Node
 
 var text_to_update = ""
-onready var label = $Label
-onready var border = $border
-onready var lockborder = $lockborder
-onready var cur_word = label.get_text()
+@onready var label = $Label
+@onready var border = $border
+@onready var lockborder = $lockborder
+@onready var cur_word = label.get_text()
 
 func update_word(word: String) -> void:
 	label.text = word

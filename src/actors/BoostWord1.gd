@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var word_velocity = Vector2.ZERO
 var word_direction = Vector2.ZERO
@@ -19,14 +19,14 @@ var word_list = {
 	9 : "dash",
 	10 : "dart"
 }
-export var MAX_SPEED = 15
-export var ACCELERATION = 15
+@export var MAX_SPEED = 15
+@export var ACCELERATION = 15
 
-onready var player = get_parent().get_parent()
-onready var boost_controller = get_parent()
-onready var boostMiss_timer = $BoostMissTimer
-onready var boost_duration_timer = $BoostDurationTimer
-onready var word_label = $Label
+@onready var player = get_parent().get_parent()
+@onready var boost_controller = get_parent()
+@onready var boostMiss_timer = $BoostMissTimer
+@onready var boost_duration_timer = $BoostDurationTimer
+@onready var word_label = $Label
 	
 func generate_word() -> String:
 	randomize()
@@ -42,7 +42,9 @@ func _physics_process(delta: float) -> void:
 	if dead == false:
 		self.visible = true
 		word_velocity = word_velocity.move_toward(-boost_controller.player_dir * MAX_SPEED, ACCELERATION * delta)
-		word_velocity = move_and_slide(word_velocity)
+		set_velocity(word_velocity)
+		move_and_slide()
+		word_velocity = velocity
 	else:
 		self.visible = false
 		self.position = player.position # Need to offset here

@@ -1,7 +1,7 @@
-extends AnimatedSprite
+extends AnimatedSprite2D
 
 var zeroToMax = false
-onready var zero_to_max_timer = $ZeroToMaxTimer
+@onready var zero_to_max_timer = $ZeroToMaxTimer
 
 func zero_to_max() -> void:
 	zeroToMax = true

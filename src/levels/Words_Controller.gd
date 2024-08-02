@@ -2,8 +2,8 @@ extends Node2D
 
 var word_count = 25
 
-onready var level = get_parent()
-onready var player = level.get_node("Player")
+@onready var level = get_parent()
+@onready var player = level.get_node("Player")
 
 var words = {
 	1 : "rock",
@@ -62,7 +62,7 @@ var word_used = {
 }
 
 func _ready():
-	yield(get_tree().root, "ready")
+	await get_tree().root.ready
 	for child in self.get_children():
 		var word = gen_word()
 		child.spawn(word)

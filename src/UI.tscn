@@ -1,0 +1,142 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://src/levels/SpeedMeter.gd" type="Script" id=1]
+[ext_resource path="res://src/Camera2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/pixil-frame-0.png" type="Texture2D" id=3]
+[ext_resource path="res://MicroSix-MVRjw.ttf" type="FontFile" id=4]
+[ext_resource path="res://assets/Speed_Bar_fames.png" type="Texture2D" id=5]
+[ext_resource path="res://src/levels/TypeBox.gd" type="Script" id=6]
+[ext_resource path="res://assets/images/letter_box_lock.png" type="Texture2D" id=7]
+[ext_resource path="res://src/levels/TargetWord.gd" type="Script" id=9]
+
+[sub_resource type="FontFile" id=16]
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 200, 100 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 200, 0, 200, 100 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 400, 0, 200, 100 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 600, 0, 200, 100 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 800, 0, 200, 100 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1000, 0, 200, 100 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1200, 0, 200, 100 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1400, 0, 200, 100 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1600, 0, 200, 100 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 17 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Camera2D" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( -50, 0 )
+offset = Vector2( -50, 0 )
+position_smoothing_speed = 10.0
+drag_right_margin = 0.05
+
+[node name="TypeBox" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="border" type="Sprite2D" parent="TypeBox"]
+position = Vector2( 744, 976 )
+scale = Vector2( 2.70584, 2.15178 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Label" type="Label" parent="TypeBox"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.00596833
+anchor_top = -0.104335
+anchor_right = 0.00596833
+anchor_bottom = -0.104335
+offset_left = 756.541
+offset_top = 1088.68
+offset_right = 992.54
+offset_bottom = 1161.68
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource( 16 )
+valign = 1
+
+[node name="SpeedMeter" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2( 629.201, 674.916 )
+scale = Vector2( 1.00374, 0.584749 )
+frames = SubResource( 15 )
+script = ExtResource( 1 )
+
+[node name="ZeroToMaxTimer" type="Timer" parent="SpeedMeter"]
+
+[node name="TargetWord" type="Node" parent="."]
+script = ExtResource( 9 )
+
+[node name="border" type="Sprite2D" parent="TargetWord"]
+position = Vector2( 1081, 976 )
+scale = Vector2( 2.70584, 2.15178 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="lockborder" type="Sprite2D" parent="TargetWord"]
+visible = false
+position = Vector2( 1212.75, 1011.5 )
+scale = Vector2( 2.65416, 2.01923 )
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="TargetWord"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.00596833
+anchor_top = -0.104335
+anchor_right = 0.00596833
+anchor_bottom = -0.104335
+offset_left = 1085.54
+offset_top = 1084.68
+offset_right = 1321.54
+offset_bottom = 1157.68
+size_flags_vertical = 1
+theme_override_fonts/font = SubResource( 16 )
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="timeout" from="SpeedMeter/ZeroToMaxTimer" to="SpeedMeter" method="_on_ZeroToMaxTimer_timeout"]

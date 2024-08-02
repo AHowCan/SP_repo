@@ -1,6 +1,6 @@
 extends TileMap
 
-onready var mnode_1 = $MNode_1
+@onready var mnode_1 = $MNode_1
 
 var words = {
 	1 : "rocket",

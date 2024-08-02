@@ -1,53 +1,129 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://f5hfguiekm3c"]
 
-[ext_resource path="res://assets/dynamic_fonts/word_coordinate_font.tres" type="DynamicFont" id=1]
-[ext_resource path="res://src/Word_Coordinate.gd" type="Script" id=2]
+[ext_resource type="FontFile" path="res://assets/dynamic_fonts/word_coordinate_font.tres" id="1"]
+[ext_resource type="Script" path="res://src/Word_Coordinate.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://d3shgcfkbaub6" path="res://assets/test_sprites/letter_background.png" id="3"]
 
 [node name="Word_Coordinate" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
+
+[node name="backgrounds" type="Node2D" parent="."]
+position = Vector2(-17, -4)
+
+[node name="bg1" type="Sprite2D" parent="backgrounds"]
+position = Vector2(0, 1)
+texture = ExtResource("3")
+offset = Vector2(2, 3)
+flip_h = true
+flip_v = true
+
+[node name="bg1_5" type="Sprite2D" parent="backgrounds/bg1"]
+position = Vector2(4, 1)
+rotation = 1.56826
+texture = ExtResource("3")
+offset = Vector2(2, 3)
+flip_h = true
+flip_v = true
+
+[node name="bg2" type="Sprite2D" parent="backgrounds"]
+position = Vector2(8, -0.857142)
+scale = Vector2(1, 1.28571)
+texture = ExtResource("3")
+offset = Vector2(2, 3)
+flip_h = true
+
+[node name="bg3" type="Sprite2D" parent="backgrounds"]
+position = Vector2(14, 2.14286)
+scale = Vector2(1, 1.28571)
+texture = ExtResource("3")
+offset = Vector2(2, 3)
+flip_v = true
+
+[node name="bg3_5" type="Sprite2D" parent="backgrounds/bg3"]
+position = Vector2(5.44437, -0.138834)
+rotation = 1.57338
+texture = ExtResource("3")
+offset = Vector2(2, 3)
+flip_v = true
+
+[node name="bg4" type="Sprite2D" parent="backgrounds"]
+position = Vector2(21, -0.428571)
+scale = Vector2(1, 1.14286)
+texture = ExtResource("3")
+offset = Vector2(2, 3)
+flip_h = true
+
+[node name="bg4_5" type="Sprite2D" parent="backgrounds/bg4"]
+position = Vector2(-0.217068, 6.07834)
+rotation = 4.71526
+texture = ExtResource("3")
+offset = Vector2(2, 3)
+flip_h = true
+
+[node name="bg5" type="Sprite2D" parent="backgrounds"]
+position = Vector2(29.25, 2)
+scale = Vector2(1.125, 1)
+texture = ExtResource("3")
+offset = Vector2(2, 3)
+flip_h = true
+
+[node name="bg7" type="Sprite2D" parent="backgrounds/bg5"]
+position = Vector2(-1.11111, 6)
+rotation = -1.58404
+scale = Vector2(1.12497, 0.888915)
+texture = ExtResource("3")
+offset = Vector2(2, 3)
+flip_h = true
 
 [node name="letters" type="Node2D" parent="."]
+position = Vector2(-17, -4)
 
 [node name="Letter1" type="Label" parent="letters"]
-margin_right = 7.0
-margin_bottom = 10.0
-custom_fonts/font = ExtResource( 1 )
+offset_left = -12.0
+offset_top = -5.0
+offset_right = 2.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("1")
 text = "S"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Letter2" type="Label" parent="letters"]
-margin_left = 7.0
-margin_right = 13.0
-margin_bottom = 10.0
-custom_fonts/font = ExtResource( 1 )
+offset_left = 1.0
+offset_top = -5.0
+offset_right = 13.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("1")
 text = "P"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Letter3" type="Label" parent="letters"]
-margin_left = 13.0
-margin_right = 19.0
-margin_bottom = 10.0
-custom_fonts/font = ExtResource( 1 )
+offset_left = 12.0
+offset_top = -5.0
+offset_right = 24.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("1")
 text = "A"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Letter4" type="Label" parent="letters"]
-margin_left = 19.0
-margin_right = 25.0
-margin_bottom = 10.0
-custom_fonts/font = ExtResource( 1 )
+offset_left = 24.0
+offset_top = -4.0
+offset_right = 36.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("1")
 text = "C"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Letter5" type="Label" parent="letters"]
-margin_left = 25.0
-margin_right = 31.0
-margin_bottom = 10.0
-custom_fonts/font = ExtResource( 1 )
+offset_left = 36.0
+offset_top = -4.0
+offset_right = 48.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("1")
 text = "E"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1

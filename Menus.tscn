@@ -1,20 +1,20 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MenuRoot.gd" type="Script" id=1]
-[ext_resource path="res://MicroSix-MVRjw.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/dynamic_fonts/menu_button_dynamic_fonts.tres" type="DynamicFont" id=3]
-[ext_resource path="res://assets/images/back.png" type="Texture" id=4]
+[ext_resource path="res://MicroSix-MVRjw.ttf" type="FontFile" id=2]
+[ext_resource path="res://assets/dynamic_fonts/menu_button_dynamic_fonts.tres" type="FontFile" id=3]
+[ext_resource path="res://assets/images/back.png" type="Texture2D" id=4]
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="FontFile" id=1]
 font_path = "res://MicroSix-MVRjw.ttf"
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="FontFile" id=2]
 size = 19
 outline_size = 1
 outline_color = Color( 0.266667, 0.290196, 0.184314, 1 )
 font_data = SubResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="FontFile" id=4]
 size = 12
 outline_color = Color( 0.8, 0.6, 1, 1 )
 font_data = ExtResource( 2 )
@@ -22,50 +22,50 @@ font_data = ExtResource( 2 )
 [sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton:rect_position")
+tracks/0/path = NodePath("MainMenu/CenterContainer/VBoxContainer/Button:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 28 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton3:rect_position")
+tracks/1/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton3:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 82 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton2:rect_position")
+tracks/2/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 55 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MainMenu/CenterContainer/VBoxContainer/Label:rect_position")
+tracks/3/path = NodePath("MainMenu/CenterContainer/VBoxContainer/Label:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
@@ -76,20 +76,20 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton:modulate")
+tracks/5/path = NodePath("MainMenu/CenterContainer/VBoxContainer/Button:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
@@ -100,8 +100,8 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
@@ -112,8 +112,8 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
@@ -122,50 +122,50 @@ tracks/7/keys = {
 resource_name = "fade_in"
 length = 3.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton:rect_position")
+tracks/0/path = NodePath("MainMenu/CenterContainer/VBoxContainer/Button:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.7, 1.7 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 50, 28 ), Vector2( 25, 28 ), Vector2( 0, 28 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton3:rect_position")
+tracks/1/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton3:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.9, 2.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 1.9, 2.9 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 50, 82 ), Vector2( 25, 82 ), Vector2( 0, 82 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton2:rect_position")
+tracks/2/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton2:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.3, 2.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 1.3, 2.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 50, 55 ), Vector2( 25, 55 ), Vector2( 0, 55 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MainMenu/CenterContainer/VBoxContainer/Label:rect_position")
+tracks/3/path = NodePath("MainMenu/CenterContainer/VBoxContainer/Label:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1.4 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -25, 0 ), Vector2( 0, 0 ) ]
 }
@@ -176,20 +176,20 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.3, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.3, 1.4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("MainMenu/CenterContainer/VBoxContainer/ToolButton:modulate")
+tracks/5/path = NodePath("MainMenu/CenterContainer/VBoxContainer/Button:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.9, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.9, 1.7 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -200,8 +200,8 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 1.5, 2.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 1.5, 2.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -212,8 +212,8 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 2.1, 2.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 2.1, 2.9 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -222,9 +222,9 @@ tracks/7/keys = {
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color( 0.862745, 0, 1, 1 )
-margin_right = 2048.0
-margin_bottom = 1536.0
-rect_scale = Vector2( 0.315, 0.235 )
+offset_right = 2048.0
+offset_bottom = 1536.0
+scale = Vector2( 0.315, 0.235 )
 texture = ExtResource( 4 )
 
 [node name="MenuRoot" type="Control" parent="."]
@@ -239,74 +239,74 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="CenterContainer" type="CenterContainer" parent="MenuRoot/MainMenu"]
-margin_right = 640.0
-margin_bottom = 360.0
+offset_right = 640.0
+offset_bottom = 360.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuRoot/MainMenu/CenterContainer"]
-margin_left = 187.0
-margin_top = 128.0
-margin_right = 452.0
-margin_bottom = 232.0
+offset_left = 187.0
+offset_top = 128.0
+offset_right = 452.0
+offset_bottom = 232.0
 
 [node name="Label" type="Label" parent="MenuRoot/MainMenu/CenterContainer/VBoxContainer"]
-margin_right = 265.0
-margin_bottom = 24.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.368627, 0.352941, 0.54902, 1 )
-custom_fonts/font = SubResource( 2 )
+offset_right = 265.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_colors/font_outline_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_shadow_color = Color( 0.368627, 0.352941, 0.54902, 1 )
+theme_override_fonts/font = SubResource( 2 )
 text = "Space Type Continuum"
 align = 1
 
-[node name="ToolButton" type="ToolButton" parent="MenuRoot/MainMenu/CenterContainer/VBoxContainer"]
-margin_top = 28.0
-margin_right = 265.0
-margin_bottom = 51.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.368627, 0.352941, 0.54902, 1 )
-custom_fonts/font = ExtResource( 3 )
+[node name="Button" type="Button" parent="MenuRoot/MainMenu/CenterContainer/VBoxContainer"]
+offset_top = 28.0
+offset_right = 265.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_colors/font_hover_color = Color( 0.368627, 0.352941, 0.54902, 1 )
+theme_override_fonts/font = ExtResource( 3 )
 text = "Play"
 
-[node name="ToolButton2" type="ToolButton" parent="MenuRoot/MainMenu/CenterContainer/VBoxContainer"]
-margin_top = 55.0
-margin_right = 265.0
-margin_bottom = 78.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.580392, 0.564706, 0.121569, 1 )
-custom_fonts/font = SubResource( 4 )
+[node name="ToolButton2" type="Button" parent="MenuRoot/MainMenu/CenterContainer/VBoxContainer"]
+offset_top = 55.0
+offset_right = 265.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_colors/font_hover_color = Color( 0.580392, 0.564706, 0.121569, 1 )
+theme_override_fonts/font = SubResource( 4 )
 text = "Options"
 
-[node name="ToolButton3" type="ToolButton" parent="MenuRoot/MainMenu/CenterContainer/VBoxContainer"]
-margin_top = 82.0
-margin_right = 265.0
-margin_bottom = 104.0
+[node name="ToolButton3" type="Button" parent="MenuRoot/MainMenu/CenterContainer/VBoxContainer"]
+offset_top = 82.0
+offset_right = 265.0
+offset_bottom = 104.0
 text = "Exit"
 
 [node name="SideMenu" type="MarginContainer" parent="MenuRoot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 640.0
-margin_right = 640.0
+offset_left = 640.0
+offset_right = 640.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuRoot/SideMenu"]
-margin_right = 640.0
-margin_bottom = 360.0
+offset_right = 640.0
+offset_bottom = 360.0
 
 [node name="Label" type="Label" parent="MenuRoot/SideMenu/VBoxContainer"]
-margin_right = 640.0
-margin_bottom = 14.0
+offset_right = 640.0
+offset_bottom = 14.0
 text = "Options"
 
 [node name="Label2" type="Label" parent="MenuRoot/SideMenu/VBoxContainer"]
-margin_top = 18.0
-margin_right = 640.0
-margin_bottom = 32.0
+offset_top = 18.0
+offset_right = 640.0
+offset_bottom = 32.0
 text = "Pick some options"
 
-[node name="ToolButton" type="ToolButton" parent="MenuRoot/SideMenu/VBoxContainer"]
-margin_top = 36.0
-margin_right = 640.0
-margin_bottom = 58.0
+[node name="Button" type="Button" parent="MenuRoot/SideMenu/VBoxContainer"]
+offset_top = 36.0
+offset_right = 640.0
+offset_bottom = 58.0
 text = "back"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuRoot"]
@@ -314,4 +314,4 @@ anims/RESET = SubResource( 5 )
 anims/fade_in = SubResource( 6 )
 
 [connection signal="pressed" from="MenuRoot/MainMenu/CenterContainer/VBoxContainer/ToolButton2" to="MenuRoot" method="_on_ToolButton2_pressed"]
-[connection signal="pressed" from="MenuRoot/SideMenu/VBoxContainer/ToolButton" to="MenuRoot" method="_on_ToolButton_pressed"]
+[connection signal="pressed" from="MenuRoot/SideMenu/VBoxContainer/Button" to="MenuRoot" method="_on_ToolButton_pressed"]

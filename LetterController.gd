@@ -6,20 +6,20 @@ var dead = false
 var boost_word = false
 var dir
 
-const letter_width = 58
+const letter_width = 80
 const letter_height = 92
-const letter_scale = 0.60
+const letter_scale = 0.6
 const spacing = 1 * letter_scale
 
-onready var letter1 = $LetterInstance/Letter_1
-onready var letter2 = $LetterInstance/Letter_2
-onready var letter3 = $LetterInstance/Letter_3
-onready var letter4 = $LetterInstance/Letter_4
-onready var letter5 = $LetterInstance/Letter_5
-onready var cloud = $Cloud
+@onready var letter1 = $LetterInstance/Letter_1
+@onready var letter2 = $LetterInstance/Letter_2
+@onready var letter3 = $LetterInstance/Letter_3
+@onready var letter4 = $LetterInstance/Letter_4
+@onready var letter5 = $LetterInstance/Letter_5
+@onready var cloud = $Cloud
 
 
-onready var letter_list = {
+@onready var letter_list = {
 	65 : preload("res://assets/letters/A.png"),
 	97 : Rect2(letter_width - letter_width, 0, letter_width, letter_height),
 	66 : preload("res://assets/letters/B.png"),
@@ -129,16 +129,16 @@ var word_used = {
 	25:0
 }
 
-onready var oddletter1 = $OddLetterPos/Letter1
-onready var oddletter2 = $OddLetterPos/Letter2
-onready var oddletter3 = $OddLetterPos/Letter3
-onready var oddletter4 = $OddLetterPos/Letter4
-onready var oddletter5 = $OddLetterPos/Letter5
+@onready var oddletter1 = $OddLetterPos/Letter1
+@onready var oddletter2 = $OddLetterPos/Letter2
+@onready var oddletter3 = $OddLetterPos/Letter3
+@onready var oddletter4 = $OddLetterPos/Letter4
+@onready var oddletter5 = $OddLetterPos/Letter5
 
-onready var evenletter1 = $EvenLetterPos/Letter1
-onready var evenletter2 = $EvenLetterPos/Letter2
-onready var evenletter3 = $EvenLetterPos/Letter3
-onready var evenletter4 = $EvenLetterPos/Letter4
+@onready var evenletter1 = $EvenLetterPos/Letter1
+@onready var evenletter2 = $EvenLetterPos/Letter2
+@onready var evenletter3 = $EvenLetterPos/Letter3
+@onready var evenletter4 = $EvenLetterPos/Letter4
 
 func gen_word() -> int:
 	randomize()
