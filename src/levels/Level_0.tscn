@@ -28,7 +28,7 @@ layer_0/tile_data = PackedInt32Array(655378, 1, 0, 1245192, 0, 0, 65548, 0, 0, 1
 position = Vector2(462.742, 166.001)
 
 [node name="Position2D2" parent="C_Locations" index="1"]
-position = Vector2(647.919, 270.61)
+position = Vector2(603, 260)
 
 [node name="Position2D3" parent="C_Locations" index="2"]
 position = Vector2(914.337, 421.361)
