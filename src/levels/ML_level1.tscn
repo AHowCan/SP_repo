@@ -1,0 +1,124 @@
+[gd_scene load_steps=3 format=3 uid="uid://gc8y14nme0ht"]
+
+[ext_resource type="PackedScene" uid="uid://cvjs08a0gylnl" path="res://src/levels/Level_0.tscn" id="1_0e1o0"]
+[ext_resource type="Script" path="res://src/levels/Madlib_controller.gd" id="2_e5y05"]
+
+[node name="ML_level" instance=ExtResource("1_0e1o0")]
+
+[node name="TextureRect2" parent="." index="1"]
+offset_left = -25.0
+offset_top = -16.0
+offset_right = 5539.0
+offset_bottom = 2902.0
+
+[node name="TileMap2" parent="." index="2"]
+position = Vector2(-395, -49)
+layer_0/tile_data = PackedInt32Array(1245192, 0, 0, 262179, 1, 0, 262181, 1, 0, 262182, 4, 262144, 262183, 1, 0, 327719, 1, 0, 393264, 1, 0, 393266, 7, 0, 458755, 2, 0, 458799, 6, 0, 458803, 6, 0, 458805, 0, 0, 458808, 0, 0, 458810, 1, 0, 524343, 1, 0, 524347, 1, 0, 524348, 1, 0, 524349, 1, 0, 589871, 6, 0, 589872, 1, 0, 589878, 1, 0, 589879, 0, 0, 655399, 2, 0, 655406, 1, 0, 655413, 1, 0, 655414, 1, 0, 720930, 0, 0, 720933, 2, 0, 720938, 2, 0, 720946, 2, 0, 720956, 0, 0, 786490, 0, 0, 851997, 0, 0, 852000, 0, 0, 852024, 0, 0, 917528, 2, 0, 262173, 4, 65536, 327711, 4, 262144, 458791, 4, 262144, 196638, 4, 327680, 655402, 0, 262144, 589867, 0, 327680, 458796, 0, 393216, 589869, 0, 458752, 327723, 0, 131072, 196653, 0, 131072, 393260, 0, 196608, 196650, 0, 65536)
+
+[node name="Madlib_controller" type="Node2D" parent="." index="3"]
+script = ExtResource("2_e5y05")
+
+[node name="Marker2D" type="Marker2D" parent="Madlib_controller" index="0"]
+position = Vector2(377, 212)
+
+[node name="Marker2D2" type="Marker2D" parent="Madlib_controller" index="1"]
+position = Vector2(1125, 454)
+
+[node name="Marker2D3" type="Marker2D" parent="Madlib_controller" index="2"]
+position = Vector2(1556, 762)
+
+[node name="Marker2D4" type="Marker2D" parent="Madlib_controller" index="3"]
+position = Vector2(1753, 290)
+
+[node name="Marker2D5" type="Marker2D" parent="Madlib_controller" index="4"]
+position = Vector2(2038, 360)
+
+[node name="Marker2D6" type="Marker2D" parent="Madlib_controller" index="5"]
+position = Vector2(2058, 673)
+
+[node name="Marker2D7" type="Marker2D" parent="Madlib_controller" index="6"]
+position = Vector2(2270, 519)
+
+[node name="Marker2D8" type="Marker2D" parent="Madlib_controller" index="7"]
+position = Vector2(1388, 991)
+
+[node name="Marker2D9" type="Marker2D" parent="Madlib_controller" index="8"]
+position = Vector2(1437, 992)
+
+[node name="Marker2D10" type="Marker2D" parent="Madlib_controller" index="9"]
+position = Vector2(1494, 988)
+
+[node name="Marker2D11" type="Marker2D" parent="Madlib_controller" index="10"]
+position = Vector2(1543, 990)
+
+[node name="Marker2D12" type="Marker2D" parent="Madlib_controller" index="11"]
+position = Vector2(1598, 990)
+
+[node name="Marker2D13" type="Marker2D" parent="Madlib_controller" index="12"]
+position = Vector2(1660, 985)
+
+[node name="Marker2D14" type="Marker2D" parent="Madlib_controller" index="13"]
+position = Vector2(1716, 982)
+
+[node name="Marker2D15" type="Marker2D" parent="Madlib_controller" index="14"]
+position = Vector2(1768, 981)
+
+[node name="Marker2D16" type="Marker2D" parent="Madlib_controller" index="15"]
+position = Vector2(1811, 983)
+
+[node name="Marker2D17" type="Marker2D" parent="Madlib_controller" index="16"]
+position = Vector2(1868, 984)
+
+[node name="Marker2D18" type="Marker2D" parent="Madlib_controller" index="17"]
+position = Vector2(1907, 979)
+
+[node name="Marker2D19" type="Marker2D" parent="Madlib_controller" index="18"]
+position = Vector2(1953, 976)
+
+[node name="Marker2D" parent="C_Locations" index="0"]
+position = Vector2(376, 212)
+
+[node name="Position2D2" parent="C_Locations" index="1"]
+position = Vector2(496, 332)
+
+[node name="Position2D3" parent="C_Locations" index="2"]
+position = Vector2(1125, 454)
+
+[node name="Position2D4" parent="C_Locations" index="3"]
+position = Vector2(725, 451)
+
+[node name="Position2D5" parent="C_Locations" index="4"]
+position = Vector2(1391, 332)
+
+[node name="Position2D6" parent="C_Locations" index="5"]
+position = Vector2(1359, 454)
+
+[node name="Position2D7" parent="C_Locations" index="6"]
+position = Vector2(881, 452)
+
+[node name="Position2D8" parent="C_Locations" index="7"]
+position = Vector2(1553, 759)
+
+[node name="Position2D9" parent="C_Locations" index="8"]
+position = Vector2(1397, 570)
+
+[node name="Position2D10" parent="C_Locations" index="9"]
+position = Vector2(2057, 671)
+
+[node name="Position2D11" parent="C_Locations" index="10"]
+position = Vector2(1540, 196)
+
+[node name="Position2D12" parent="C_Locations" index="11"]
+position = Vector2(1855, 764)
+
+[node name="Position2D13" parent="C_Locations" index="12"]
+position = Vector2(1749, 283)
+
+[node name="Position2D15" parent="C_Locations" index="13"]
+position = Vector2(2266, 524)
+
+[node name="Position2D16" parent="C_Locations" index="14"]
+position = Vector2(2032, 364)
+
+[node name="Position2D14" parent="C_Locations" index="15"]
+position = Vector2(1908, 151)

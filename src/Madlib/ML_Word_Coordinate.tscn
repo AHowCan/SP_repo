@@ -1,0 +1,161 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3b5pk0xbk7r0"]
+
+[ext_resource type="Script" path="res://src/Madlib/ML_Word_Coordinate.gd" id="1_h02jy"]
+[ext_resource type="Texture2D" uid="uid://d3shgcfkbaub6" path="res://assets/test_sprites/letter_background.png" id="2_kny5d"]
+[ext_resource type="FontFile" path="res://assets/dynamic_fonts/word_coordinate_font.tres" id="3_777ee"]
+
+[node name="Word_Coordinate" type="Node2D"]
+script = ExtResource("1_h02jy")
+
+[node name="backgrounds" type="Node2D" parent="."]
+visible = false
+position = Vector2(-17, -4)
+
+[node name="bg1" type="Sprite2D" parent="backgrounds"]
+position = Vector2(-4.5, -4)
+scale = Vector2(1.75, 1.5)
+texture = ExtResource("2_kny5d")
+offset = Vector2(2, 3)
+flip_h = true
+flip_v = true
+
+[node name="bg1_5" type="Sprite2D" parent="backgrounds/bg1"]
+position = Vector2(4.12262, 2.84111)
+rotation = 1.56826
+scale = Vector2(1.92071, 1.20989)
+texture = ExtResource("2_kny5d")
+offset = Vector2(2, 3)
+flip_h = true
+flip_v = true
+
+[node name="bg2" type="Sprite2D" parent="backgrounds"]
+position = Vector2(9, -6.57144)
+scale = Vector2(1.5, 1.85714)
+texture = ExtResource("2_kny5d")
+offset = Vector2(2, 3)
+flip_h = true
+
+[node name="bg3" type="Sprite2D" parent="backgrounds"]
+position = Vector2(14, 2.14286)
+scale = Vector2(1, 1.28571)
+texture = ExtResource("2_kny5d")
+offset = Vector2(2, 3)
+flip_v = true
+
+[node name="bg3_5" type="Sprite2D" parent="backgrounds/bg3"]
+position = Vector2(5.44437, -0.138834)
+rotation = 1.57338
+texture = ExtResource("2_kny5d")
+offset = Vector2(2, 3)
+flip_v = true
+
+[node name="bg4" type="Sprite2D" parent="backgrounds"]
+position = Vector2(22, 2.42856)
+scale = Vector2(1.5, 1.85714)
+texture = ExtResource("2_kny5d")
+offset = Vector2(2, 3)
+flip_h = true
+
+[node name="bg4_5" type="Sprite2D" parent="backgrounds/bg4"]
+position = Vector2(6.102, -0.765105)
+rotation = 4.71526
+scale = Vector2(1, 1.35884)
+texture = ExtResource("2_kny5d")
+offset = Vector2(2, 3)
+flip_h = true
+
+[node name="bg5" type="Sprite2D" parent="backgrounds"]
+position = Vector2(36.5625, 7.28571)
+scale = Vector2(1.90625, 1.07143)
+texture = ExtResource("2_kny5d")
+offset = Vector2(2, 3)
+flip_h = true
+
+[node name="bg7" type="Sprite2D" parent="backgrounds/bg5"]
+position = Vector2(2.75362, -1.2)
+rotation = -1.58404
+scale = Vector2(1.12497, 0.888915)
+texture = ExtResource("2_kny5d")
+offset = Vector2(2, 3)
+flip_h = true
+
+[node name="letters" type="Node2D" parent="."]
+position = Vector2(14, 4)
+
+[node name="Letter1" type="Label" parent="letters"]
+offset_left = -14.0
+offset_top = -6.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_777ee")
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Letter2" type="Label" parent="letters"]
+offset_top = -6.0
+offset_right = 12.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_777ee")
+text = "P"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Letter3" type="Label" parent="letters"]
+offset_left = 12.0
+offset_top = -6.0
+offset_right = 24.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_777ee")
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Letter4" type="Label" parent="letters"]
+offset_left = 24.0
+offset_top = -6.0
+offset_right = 36.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_777ee")
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Letter5" type="Label" parent="letters"]
+offset_left = 37.0
+offset_top = -6.0
+offset_right = 49.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_777ee")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Letter6" type="Label" parent="letters"]
+offset_left = 49.0
+offset_top = -6.0
+offset_right = 61.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_777ee")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Letter7" type="Label" parent="letters"]
+offset_left = 61.0
+offset_top = -6.0
+offset_right = 73.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_777ee")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Letter8" type="Label" parent="letters"]
+offset_left = 73.0
+offset_top = -6.0
+offset_right = 85.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_777ee")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1

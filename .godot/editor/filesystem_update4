@@ -1,5 +1,11 @@
 res://default_env.tres
 res://src/UI_Player.tscn
-res://src/Word_Coordinate.tscn
+res://src/levels/ML_level1.tscn
+res://src/Madlib/madlib_zone.tscn
+res://src/Madlib/ML_Word_Coordinate.tscn
+res://src/Madlib/Madlib_zone.gd
+res://assets/dynamic_fonts/Level_2.gd
+res://src/levels/Madlib_controller.gd
+res://src/Madlib/ML_Word_Coordinate.gd
 res://src/actors/Player_alpha.gd
-res://src/HP.gd
+res://src/Camera2D.tscn

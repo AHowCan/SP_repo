@@ -6,7 +6,6 @@
 [node name="Level_0" instance=ExtResource("1")]
 
 [node name="TextureRect" parent="." index="0"]
-visible = false
 offset_left = -70.0
 offset_top = -90.0
 offset_right = 2583.0
@@ -18,7 +17,6 @@ offset_top = -1726.0
 offset_right = 6197.0
 offset_bottom = 3415.0
 pivot_offset = Vector2(2215.83, 486.024)
-stretch_mode = 1
 
 [node name="TileMap2" parent="." index="2"]
 position = Vector2(-394, -49)

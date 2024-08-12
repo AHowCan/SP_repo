@@ -1,20 +1,15 @@
 extends Node2D
 
 @onready var letters = $letters
-@onready var backgrounds = $backgrounds
-
-var max_word_length = 5
 @onready var letter_list = letters.get_children()
-@onready var background_list = backgrounds.get_children()
+#@onready var backgrounds = $backgrounds
 
-#onready var letter1 = $letters/Letter1
-#onready var letter2 = $letters/Letter2
-#onready var letter3 = $letters/Letter3
-#onready var letter4 = $letters/Letter4
-#onready var letter5 = $letters/Letter5
+var max_word_length = 8
+#@onready var background_list = backgrounds.get_children()
 
 var letter_count 
 var word
+
 
 func create_word_coordinate(use_word: String):
 	word = use_word
@@ -24,7 +19,7 @@ func create_word_coordinate(use_word: String):
 			letter_list[i].text = word[i]
 		else:
 			letter_list[i].visible = false
-			background_list[i].visible = false
+			#background_list[i].visible = false
 	
 func set_pos(pos:Vector2):
 	self.position.x = pos[0]

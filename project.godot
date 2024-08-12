@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="Space_Typist"
-run/main_scene="res://src/levels/Level_0.tscn"
+run/main_scene="res://src/levels/ML_level1.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
 
 [autoload]
 
 GlobalSetup="*res://src/global_setup.gd"
+MadlibStories="*res://src/globals/madlib_stories.gd"
+MadlibWords="*res://src/globals/madlib_words.gd"
 
 [display]
 

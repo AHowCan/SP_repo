@@ -33,6 +33,7 @@ var word_location = {}
 @onready var boost_word1 = get_node("BoostController/BoostWord1")
 @onready var dir_dot = $dirdot
 @onready var movement_trail = $TailParticles
+@onready var camera = $Camera2D
 
 
 var typed = false
@@ -56,6 +57,8 @@ var test_var = Vector2.ZERO
 
 @onready var area_1
 
+signal updateTypingWord(typing_word)
+
 var fsm = 0 
 # State Machine
    # 0: Idle
@@ -71,7 +74,6 @@ func _ready():
 	$AnimatedSprite2D.play("idle")
 	fsm = 1
 	
-
 func _physics_process(delta: float) -> void:
 	### Check various typing matches
 	if typed:
@@ -114,7 +116,6 @@ func idle_movement() -> void:
 	enemy_target = cur_position
 	dir_dot.position = cur_position
 	
-
 func move_player(delta: float) -> Vector2:
 	direction = (enemy_loc - global_position).normalized()
 	if not lock_direction:
@@ -122,9 +123,6 @@ func move_player(delta: float) -> Vector2:
 		direction = unlock_direction
 	else:
 		direction = (enemy_loc - global_position).normalized()
-	
-	#veloc = veloc.move_toward(direction * (speed + booster), ACCELERATION * delta)
-	#veloc = move_and_slide(veloc)
 		
 	for i in get_slide_collision_count():
 		if recover_timer.is_stopped():
@@ -155,7 +153,6 @@ func hit_movement(delta: float) -> Vector2:
 		fsm = 0
 		veloc = Vector2.ZERO
 	return veloc
-
 	
 func speed_meter() -> void:
 	var speed_divison = int(floor(MAX_SPEED / 8	)) # There's eight divisions, each worth this var
@@ -194,9 +191,10 @@ func _input(event: InputEvent) -> void:
 		typed = false
 	elif event is InputEventKey and event.is_pressed() == true and not event.echo:
 		typist.append(OS.get_keycode_string(event.keycode).to_lower())
-		if typist.size() > 7:
+		if typist.size() > 8:
 			typist.pop_front()
 		typed = true
+		emit_signal("updateTypingWord", typist)
 	
 	# Updates the text box with what the player is typing
 	update_player_text_box()
@@ -249,6 +247,16 @@ func boost_word_typed(delta: float, veloc: Vector2) -> Vector2:
 		index += 1
 	return veloc
 
+func is_object_in_camera_viewport(position: Vector2) -> bool:
+	#var screen_position = camera.global_position
+	##var camera_rect = get_canvas_transform()
+	#var camera_rect = camera.get_viewport_rect()
+	#camera.draw_rect(camera_rect, )
+	#print(camera_rect)
+	return true
+	#var viewport_rect = Rect2(Vector2.ZERO, camera.get_viewport().size)
+	#return viewport_rect.has_point(screen_position)
+
 func point_word_typed(delta: float, veloc: Vector2) -> Vector2:
 	var index = 0
 	for enemy in wordList:
@@ -258,20 +266,22 @@ func point_word_typed(delta: float, veloc: Vector2) -> Vector2:
 					break
 				else:
 					if len(enemy) - 1 == i:
-						movement_trail.emitting= true
-						fsm = 1
-						typist = []
-						texttarget.lock_unlock_border(true)
-						texttarget.update_word(enemy)
-						#level.index = index
-						#direction = (enemy.position - global_position).normalized()
-						speed = MAX_SPEED
-						#speed_meter.zero_to_max()
-						#direction = (level.enemyList[index].global_position - global_position).normalized()
-						#return (enemy.position - global_position).normalized()
-						#return enemy.position
-						return word_location[enemy]
-						#return veloc
+						#if is_object_in_camera_viewport(word_location[enemy]):
+							is_object_in_camera_viewport(word_location[enemy])
+							movement_trail.emitting= true
+							fsm = 1
+							typist = []
+							texttarget.lock_unlock_border(true)
+							texttarget.update_word(enemy)
+							#level.index = index
+							#direction = (enemy.position - global_position).normalized()
+							speed = MAX_SPEED
+							#speed_meter.zero_to_max()
+							#direction = (level.enemyList[index].global_position - global_position).normalized()
+							#return (enemy.position - global_position).normalized()
+							#return enemy.position
+							return word_location[enemy]
+							#return veloc
 			index += 1
 	#return veloc
 	return Vector2.ONE

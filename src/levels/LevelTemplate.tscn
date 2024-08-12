@@ -1663,7 +1663,7 @@ offset_top = -460.0
 offset_right = 7454.0
 offset_bottom = 4084.0
 texture = ExtResource("12")
-stretch_mode = 2
+stretch_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -1746,6 +1746,7 @@ TURNSPEED = 60
 [node name="AnimatedSprite2D" parent="Player" index="2"]
 sprite_frames = SubResource("4")
 animation = &"idle"
+frame = 0
 
 [node name="BoostWord1" parent="Player/BoostController" index="2"]
 visible = false

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://hwtayw3ndhfy"]
+
+[ext_resource type="Script" path="res://src/Madlib/Madlib_zone.gd" id="1_y7ofm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hqah5"]
+radius = 136.0
+height = 370.0
+
+[node name="madlib_zone" type="Area2D"]
+script = ExtResource("1_y7ofm")
+
+[node name="detect_player" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hqah5")
+
+[node name="word1_marker" type="Marker2D" parent="."]
+position = Vector2(135, -119)
+
+[node name="word2_marker" type="Marker2D" parent="."]
+position = Vector2(136, -2)
+
+[node name="word3_marker" type="Marker2D" parent="."]
+position = Vector2(137, 114)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

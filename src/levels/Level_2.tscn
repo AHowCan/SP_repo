@@ -333,6 +333,7 @@ sources/7 = SubResource("TileSetAtlasSource_bk7la")
 script = ExtResource("2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0.976471, 0.819608, 1, 1)
 offset_left = 5.0
 offset_top = -460.0
@@ -344,12 +345,12 @@ stretch_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 self_modulate = Color(0.301961, 0.286275, 0.45098, 1)
-offset_left = -87.0
-offset_top = -100.0
-offset_right = 1332.0
-offset_bottom = 741.0
+offset_left = -492.0
+offset_top = -322.0
+offset_right = 2894.0
+offset_bottom = 1863.0
 texture = ExtResource("1")
-stretch_mode = 2
+stretch_mode = 1
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2(-38.6424, 38.6424)
