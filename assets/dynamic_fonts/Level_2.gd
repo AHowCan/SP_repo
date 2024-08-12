@@ -16,6 +16,7 @@ func _ready():
 		player.word_location[word_coordinate_controller.word_list[-1]] = i.position
 	player.wordList = word_coordinate_controller.word_list
 	player.connect("updateTypingWord", _on_Player_updateTypingWord)
+	madlib_controller.connect('clear_type_box', clear_type_box)
 
 func _on_Player_updateTypingWord(word):
 	current_word = "".join(word)
@@ -23,3 +24,6 @@ func _on_Player_updateTypingWord(word):
 
 func _process(delta):
 	pass
+
+func clear_type_box():
+	player.clear_text_target()

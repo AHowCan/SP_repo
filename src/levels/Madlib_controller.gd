@@ -9,6 +9,8 @@ const madlib_zone_scene_path = "res://src/Madlib/madlib_zone.tscn"
 
 @onready var ml_pos = get_children()
 
+signal clear_type_box()
+
 func _ready():
 	randomize()
 	var madlib_zone = preload(madlib_zone_scene_path)
@@ -51,6 +53,7 @@ func check_type_matches_ml_word(word):
 			if word in madlib_zone.word_list:
 				words[madlib_zone.zone_index] = word
 				remove_and_delete_child(madlib_zone)
+				emit_signal("clear_type_box")
 				
 		
 func set_needed_word_dict(text):
@@ -73,5 +76,4 @@ func remove_and_delete_child(instantiated_node):
 		madlib_zone_tracker.erase(instantiated_node)
 		remove_child(instantiated_node)
 		instantiated_node.queue_free()
-		print("Node removed and deleted")
 		instantiated_node = null
