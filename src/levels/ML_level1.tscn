@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://gc8y14nme0ht"]
+[gd_scene load_steps=5 format=3 uid="uid://gc8y14nme0ht"]
 
 [ext_resource type="PackedScene" uid="uid://cvjs08a0gylnl" path="res://src/levels/Level_0.tscn" id="1_0e1o0"]
 [ext_resource type="Script" path="res://src/levels/Madlib_controller.gd" id="2_e5y05"]
+[ext_resource type="Shader" path="res://assets/shaders/ml_shadder.gdshader" id="3_qqc21"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d78vm"]
+shader = ExtResource("3_qqc21")
+shader_parameter/radius = 0.884
+shader_parameter/fog_color = Vector4(2.08165e-12, 2.08165e-12, 2.08165e-12, 300)
+shader_parameter/fog_density = 0.863
 
 [node name="ML_level" instance=ExtResource("1_0e1o0")]
 
@@ -18,61 +25,73 @@ layer_0/tile_data = PackedInt32Array(1245192, 0, 0, 262179, 1, 0, 262181, 1, 0, 
 [node name="Madlib_controller" type="Node2D" parent="." index="3"]
 script = ExtResource("2_e5y05")
 
-[node name="Marker2D" type="Marker2D" parent="Madlib_controller" index="0"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Madlib_controller" index="0"]
+
+[node name="ColorRect" type="ColorRect" parent="Madlib_controller/CanvasLayer" index="0"]
+visible = false
+material = SubResource("ShaderMaterial_d78vm")
+offset_left = 57.0
+offset_top = 52.0
+offset_right = 678.0
+offset_bottom = 443.0
+
+[node name="pos_markers" type="Node2D" parent="Madlib_controller" index="1"]
+
+[node name="Marker2D" type="Marker2D" parent="Madlib_controller/pos_markers" index="0"]
 position = Vector2(377, 212)
 
-[node name="Marker2D2" type="Marker2D" parent="Madlib_controller" index="1"]
+[node name="Marker2D2" type="Marker2D" parent="Madlib_controller/pos_markers" index="1"]
 position = Vector2(1125, 454)
 
-[node name="Marker2D3" type="Marker2D" parent="Madlib_controller" index="2"]
+[node name="Marker2D3" type="Marker2D" parent="Madlib_controller/pos_markers" index="2"]
 position = Vector2(1556, 762)
 
-[node name="Marker2D4" type="Marker2D" parent="Madlib_controller" index="3"]
+[node name="Marker2D4" type="Marker2D" parent="Madlib_controller/pos_markers" index="3"]
 position = Vector2(1753, 290)
 
-[node name="Marker2D5" type="Marker2D" parent="Madlib_controller" index="4"]
+[node name="Marker2D5" type="Marker2D" parent="Madlib_controller/pos_markers" index="4"]
 position = Vector2(2038, 360)
 
-[node name="Marker2D6" type="Marker2D" parent="Madlib_controller" index="5"]
+[node name="Marker2D6" type="Marker2D" parent="Madlib_controller/pos_markers" index="5"]
 position = Vector2(2058, 673)
 
-[node name="Marker2D7" type="Marker2D" parent="Madlib_controller" index="6"]
+[node name="Marker2D7" type="Marker2D" parent="Madlib_controller/pos_markers" index="6"]
 position = Vector2(2270, 519)
 
-[node name="Marker2D8" type="Marker2D" parent="Madlib_controller" index="7"]
+[node name="Marker2D8" type="Marker2D" parent="Madlib_controller/pos_markers" index="7"]
 position = Vector2(1388, 991)
 
-[node name="Marker2D9" type="Marker2D" parent="Madlib_controller" index="8"]
+[node name="Marker2D9" type="Marker2D" parent="Madlib_controller/pos_markers" index="8"]
 position = Vector2(1437, 992)
 
-[node name="Marker2D10" type="Marker2D" parent="Madlib_controller" index="9"]
+[node name="Marker2D10" type="Marker2D" parent="Madlib_controller/pos_markers" index="9"]
 position = Vector2(1494, 988)
 
-[node name="Marker2D11" type="Marker2D" parent="Madlib_controller" index="10"]
+[node name="Marker2D11" type="Marker2D" parent="Madlib_controller/pos_markers" index="10"]
 position = Vector2(1543, 990)
 
-[node name="Marker2D12" type="Marker2D" parent="Madlib_controller" index="11"]
+[node name="Marker2D12" type="Marker2D" parent="Madlib_controller/pos_markers" index="11"]
 position = Vector2(1598, 990)
 
-[node name="Marker2D13" type="Marker2D" parent="Madlib_controller" index="12"]
+[node name="Marker2D13" type="Marker2D" parent="Madlib_controller/pos_markers" index="12"]
 position = Vector2(1660, 985)
 
-[node name="Marker2D14" type="Marker2D" parent="Madlib_controller" index="13"]
+[node name="Marker2D14" type="Marker2D" parent="Madlib_controller/pos_markers" index="13"]
 position = Vector2(1716, 982)
 
-[node name="Marker2D15" type="Marker2D" parent="Madlib_controller" index="14"]
+[node name="Marker2D15" type="Marker2D" parent="Madlib_controller/pos_markers" index="14"]
 position = Vector2(1768, 981)
 
-[node name="Marker2D16" type="Marker2D" parent="Madlib_controller" index="15"]
+[node name="Marker2D16" type="Marker2D" parent="Madlib_controller/pos_markers" index="15"]
 position = Vector2(1811, 983)
 
-[node name="Marker2D17" type="Marker2D" parent="Madlib_controller" index="16"]
+[node name="Marker2D17" type="Marker2D" parent="Madlib_controller/pos_markers" index="16"]
 position = Vector2(1868, 984)
 
-[node name="Marker2D18" type="Marker2D" parent="Madlib_controller" index="17"]
+[node name="Marker2D18" type="Marker2D" parent="Madlib_controller/pos_markers" index="17"]
 position = Vector2(1907, 979)
 
-[node name="Marker2D19" type="Marker2D" parent="Madlib_controller" index="18"]
+[node name="Marker2D19" type="Marker2D" parent="Madlib_controller/pos_markers" index="18"]
 position = Vector2(1953, 976)
 
 [node name="Marker2D" parent="C_Locations" index="0"]

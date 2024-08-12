@@ -9,6 +9,7 @@ var word3 = ""
 var word_list = []
 var spawn = false
 
+@onready var tunnel_shader = $tunnel_shader
 const word_controller_path = "res://src/Madlib/ML_Word_Coordinate.tscn"
 
 var word_controller
@@ -24,8 +25,7 @@ func _ready():
 	word1_marker = $word1_marker
 	word2_marker = $word2_marker
 	word3_marker = $word3_marker
-	
-	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -35,7 +35,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == "Player" and not ship_in_area: 
 		ship_in_area = true
-		
+		tunnel_shader.visible = true
 		var instance1 = word_controller.instantiate()
 		word1_marker.add_child(instance1)
 		instance1.create_word_coordinate(word1)
@@ -51,10 +51,12 @@ func _on_body_entered(body):
 		word_list.append(word1)
 		word_list.append(word2)
 		word_list.append(word3)
+	
 
 func _on_body_exited(body):
 	if body.name == "Player": 
 		ship_in_area = false
+		tunnel_shader.visible = false
 		var rand_choice = randi_range(1,3)
 		if rand_choice == 1:
 			emit_signal("random_word_Seppuku", zone_index, word1)

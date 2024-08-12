@@ -9,3 +9,5 @@ res://src/levels/Madlib_controller.gd
 res://src/Madlib/ML_Word_Coordinate.gd
 res://src/actors/Player_alpha.gd
 res://src/Camera2D.tscn
+res://assets/shaders/ml_shadder.gdshader
+res://src/Madlib/tunnelview.gdshader

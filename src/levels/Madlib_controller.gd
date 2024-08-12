@@ -7,7 +7,8 @@ var madlib_zone_counter = 1
 var madlib_zone_tracker = [] # 
 const madlib_zone_scene_path = "res://src/Madlib/madlib_zone.tscn"
 
-@onready var ml_pos = get_children()
+@onready var ml_pos = $pos_markers.get_children()
+
 
 signal clear_type_box()
 
